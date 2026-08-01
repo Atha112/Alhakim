@@ -24,7 +24,7 @@ export default function PageHeader({ title, subtitle, backgroundImage }) {
   return (
     <section
       ref={ref}
-      className="relative flex items-end min-h-[45vh] max-h-[55vh] overflow-hidden"
+      className="relative flex items-end min-h-[40vh] md:min-h-[48vh] max-h-[55vh] overflow-hidden"
     >
       {/* Background image with parallax */}
       {backgroundImage && (
@@ -35,21 +35,24 @@ export default function PageHeader({ title, subtitle, backgroundImage }) {
           <img
             src={backgroundImage}
             alt=""
-            className="w-full h-[120%] object-cover"
+            className="w-full h-[120%] object-cover object-center"
           />
         </div>
       )}
 
-      {/* Dark overlay with scroll-based opacity */}
+      {/* Dark overlay with higher contrast for subtitle & title clarity */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 z-[2]"
         style={{
-          backgroundColor: `rgba(20, 20, 22, ${overlayBase + overlayExtra})`,
+          backgroundColor: `rgba(18, 18, 20, ${overlayBase + overlayExtra + 0.15})`,
         }}
       />
 
+      {/* Subtle radial gradient focus on content */}
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-[rgba(18,18,20,0.4)] to-[rgba(18,18,20,0.85)] z-[3] pointer-events-none" />
+
       {/* Decorative grain texture */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-[3]">
+      <div className="absolute inset-0 pointer-events-none opacity-[0.035] z-[4]">
         <svg className="w-full h-full">
           <filter id="header-grain">
             <feTurbulence
@@ -63,23 +66,21 @@ export default function PageHeader({ title, subtitle, backgroundImage }) {
         </svg>
       </div>
 
-      {/* Decorative bottom gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/50 to-transparent pointer-events-none z-[5]" />
-
-      {/* Decorative corner lines */}
-      <div className="absolute top-0 left-0 w-24 h-24 border-b border-r border-[var(--gold-primary)] opacity-10 pointer-events-none z-[6] ml-[5%] mt-[5%]" />
-      <div className="absolute bottom-0 right-0 w-24 h-24 border-t border-l border-[var(--gold-primary)] opacity-10 pointer-events-none z-[6] mr-[5%] mb-[20%]" />
+      {/* Decorative bottom gradient transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/70 to-transparent pointer-events-none z-[5]" />
 
       {/* Content */}
-      <div className="relative z-10 w-full container-site pb-14 pt-28">
+      <div className="relative z-10 w-full container-site pb-10 md:pb-14 pt-28 md:pt-32">
         <SectionReveal>
           {subtitle && (
-            <p className="text-label text-[var(--gold-primary)] mb-4 flex items-center gap-3">
-              <span className="inline-block w-6 h-px bg-[var(--gold-primary)]" />
-              {subtitle}
-            </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[rgba(184,150,62,0.15)] border border-[var(--gold-primary)]/40 backdrop-blur-md mb-3.5">
+              <span className="inline-block w-2 h-2 rounded-full bg-[var(--gold-primary)]" />
+              <p className="font-[Jost] text-[11px] md:text-[12px] tracking-[2.5px] uppercase font-medium text-[var(--gold-light)]">
+                {subtitle}
+              </p>
+            </div>
           )}
-          <h1 className="heading-xl text-[var(--text-primary)]">
+          <h1 className="heading-xl text-[var(--text-primary)] drop-shadow-md text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light">
             {title}
           </h1>
           {/* Gold underline decoration */}
@@ -87,7 +88,7 @@ export default function PageHeader({ title, subtitle, backgroundImage }) {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="w-20 h-px bg-gradient-to-r from-[var(--gold-primary)] to-transparent mt-6 origin-left"
+            className="w-16 md:w-24 h-[2px] bg-gradient-to-r from-[var(--gold-primary)] via-[var(--gold-pale)] to-transparent mt-4 md:mt-5 origin-left"
           />
         </SectionReveal>
       </div>

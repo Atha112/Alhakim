@@ -5,7 +5,7 @@
 
 export const schoolInfo = {
   name: "Sekolah Alam Al-Hakim",
-  tagline: "Menumbuhkan Generasi Berakhlak, Cinta Alam & Berilmu",
+  tagline: "Giri Tempa Bagi Ekspresi Fitrah Insani",
   phone: "+62 812-3456-7890",
   email: "info@sekolahalam-alhakim.sch.id",
   address: "Jl. Bumi Persada No. 17, Desa Ciputri, Kec. Cianjur, Kab. Cianjur, Jawa Barat 43262",
@@ -17,119 +17,129 @@ export const schoolInfo = {
   },
 };
 
+export const visiMisiContent = {
+  pendidikanKarakter: {
+    nabawiyah: {
+      title: "Pendidikan Karakter Nabawiyah (Pendidikan Fitrah)",
+      description:
+        "Sekolah yang menerapkan sistem pendidikan karakter nabawiyah yaitu menumbuhkan karakter iman, karakter belajar yang diselaraskan dengan karakter perkembangan anak. Karakter Iman adalah pondasi kepribadian seorang anak, maka harus ditumbuhkan terlebih dahulu sebelum menumbuhkan karakter lainnya. Tanpa keimanan dan kesadaran anak tidak mungkin akan menjadi pembelajar yang tangguh. Tanpa tumbuhnya karakter belajar juga tidak mungkin anak akan menghasilkan karya yang bermanfaat.",
+    },
+    aqilBaligh: {
+      title: "Pendidikan Aqil Baligh",
+      description:
+        "Dan menerapkan Pendidikan Aqil Baligh, menempa santri agar memiliki karakter pemuda yaitu karakter tanggungjawab, kemandirian, kecakapan berfikir dan kecakapan sosial.",
+    },
+  },
+  visi: {
+    title: "Giri Tempa Bagi Ekspresi Fitrah Insani",
+    description:
+      "Sekolah Alam Al-Hakim adalah sebuah bumi penempaan dan pembentukan manusia dan kemanusiaan secara manusiawi dan fitri, agar terekspresikan dan teraktualisasikan kapasitas dan potensi santri.",
+  },
+  misi: [
+    "Menumbuhkan karakter keimanan sebagai fondasi kehidupan.",
+    "Mengembangkan potensi santri sesuai fitrahnya.",
+    "Menyelenggarakan pembelajaran berbasis alam yang bermakna.",
+    "Membentuk insan yang aqil baligh.",
+  ],
+  targetSD: {
+    title: "Target Kompetensi SD",
+    description:
+      "Menjadi pemuda aqil baligh yang bersyukur. Bersyukur adalah mengetahui, menggunakan potensi yang dimiliki untuk digunakan di jalan Allah.",
+  },
+  budaya: [
+    {
+      title: "Insight Learning for Inside-out",
+      description:
+        "Insight Learning for Inside-out setiap santri Sekolah Alam Al-Hakim mampu mengambil hikmah pelajaran tersembunyi dalam setiap pengalaman belajar.",
+    },
+    {
+      title: "Brothering",
+      description:
+        "Budaya yang terbangun di Sekolah Alam Al-Hakim adalah brothering. Silih asah asih asuh antar santri.",
+    },
+  ],
+  motto: {
+    title: "Tafakkur untuk Tadabbur Insan Bersyukur",
+    description:
+      "Insan yang mentafakkuri ayat-ayat kauni untuk mentadabburi ayat-ayat Qur’ani, agar terbentuk manusia yang mampu mendayagunakan seluruh karunia Allah untuk kemaslahatan hidup.",
+  },
+};
+
 export const programs = [
   {
     id: 1,
-    slug: "daycare",
-    name: "Daycare Al-Hakim",
-    shortName: "Daycare",
-    ageRange: "1–3 tahun",
-    description:
-      "Ruang bermain dan belajar yang aman untuk anak usia dini, dirancang untuk merangsang motorik halus dan kasar melalui eksplorasi alam. Setiap aktivitas difokuskan pada tumbuh kembang anak secara holistik.",
-    features: ["Rasio pengasuh 1:4", "Area bermain outdoor", "Stimulasi sensori alam"],
-    image: "/images/program-daycare.jpg",
-  },
-  {
-    id: 2,
-    slug: "preschool",
-    name: "Playgroup & Kindergarten",
-    shortName: "Preschool",
-    ageRange: "3–6 tahun",
-    description:
-      "Program pendidikan anak usia dini berbasis alam yang mengintegrasikan bermain, berkarya, dan beribadah. Anak-anak belajar melalui proyek kebun, seni alam, dan kegiatan keislaman harian.",
-    features: ["Proyek kebun & cooking class", "Tahsin & hafalan surat pendek", "Field trip bulanan"],
-    image: "/images/program-preschool.jpg",
-  },
-  {
-    id: 3,
     slug: "sd",
     name: "Sekolah Dasar Al-Hakim",
     shortName: "SD",
     ageRange: "6–12 tahun",
     description:
-      "Kurikulum merdeka yang dipadukan dengan pembelajaran berbasis alam dan karakter Islami. Siswa belajar melalui proyek nyata, expedisi alam, dan pembiasaan ibadah.",
-    features: ["Ekspedisi alam mingguan", "Tahfidz & adab sehari-hari", "Proyek berbasis komunitas"],
+      "Pendidikan SD yang menargetkan santri menjadi pemuda aqil baligh yang bersyukur — mengetahui dan menggunakan potensi yang dimiliki untuk digunakan di jalan Allah.",
+    targetKompetensi:
+      "Menjadi pemuda aqil baligh yang bersyukur. Bersyukur adalah mengetahui, menggunakan potensi yang dimiliki untuk digunakan di jalan Allah.",
+    features: [
+      "Jelajah alam, supercamp & trekking",
+      "Tahsin, tahfidz & implementasi Qur'an",
+      "Penempaan aqil baligh & karakter pemuda",
+    ],
     image: "/images/program-sd.jpg",
-  },
-  {
-    id: 4,
-    slug: "smp",
-    name: "Sekolah Menengah Pertama Al-Hakim",
-    shortName: "SMP",
-    ageRange: "12–15 tahun",
-    description:
-      "Pembelajaran tematik-integratif yang menekankan kemandirian, kepemimpinan, dan kepedulian lingkungan. Siswa terlibat dalam program kewirausahaan sosial dan bimbingan akhlak intensif.",
-    features: ["Program kewirausahaan siswa", "Bimbingan akhlak & mentoring", "Penelitian lingkungan hidup"],
-    image: "/images/program-smp.jpg",
-  },
-  {
-    id: 5,
-    slug: "sma",
-    name: "Sekolah Menengah Atas Al-Hakim",
-    shortName: "SMA",
-    ageRange: "15–18 tahun",
-    description:
-      "Program pendidikan yang mempersiapkan generasi muda menjadi pemimpin berintegritas dan khalifah di muka bumi. Kurikulum dipadukan dengan magang profesional, riset lingkungan, dan pendalaman Al-Qur'an.",
-    features: ["Magang & study tour profesional", "Riset lingkungan terapan", "Tahfidz intensif & kajian"],
-    image: "/images/program-sma.jpg",
   },
 ];
 
 export const homepageContent = {
   hero: {
     label: "Sekolah Alam Al-Hakim",
-    title: "Menumbuhkan Generasi\nKhalifah di Muka Bumi",
+    title: "Giri Tempa Bagi Ekspresi\nFitrah Insani",
     subtitle:
-      "Pendidikan berbasis alam yang membentuk karakter Islami, kecerdasan akal, dan kepekaan hati sejak usia dini.",
+      "Menerapkan Pendidikan Karakter Nabawiyah (Pendidikan fitrah) dan Pendidikan Aqil Baligh.",
     ctaText: "Daftarkan Putra-Putri Anda",
     ctaLink: "/pendaftaran",
   },
   intro: {
-    label: "Tentang Kami",
-    title: "Sekolah Alam untuk Generasi Berakhlak",
+    label: "Kontak Kami",
+    title: "Hubungi Sekolah Alam Al-Hakim",
     description:
-      "Sekolah Alam Al-Hakim menyelenggarakan pendidikan yang menempatkan alam sebagai laboratorium utama. Kami percaya anak belajar terbaik ketika berinteraksi langsung dengan ciptaan Allah. Dengan menggabungkan kurikulum merdeka, nilai-nilai Islam, dan kearifan lokal, kami menyiapkan generasi yang berilmu, berakhlak, dan cinta lingkungan.",
+      "Sekolah Alam Al-Hakim membuka komunikasi seluas-luasnya bagi orang tua yang ingin mengenal lebih jauh sistem pendidikan fitrah dan aqil baligh kami.",
   },
   programPreview: {
     label: "Program Kami",
-    title: "Jenjang Pendidikan",
+    title: "Jenjang Pendidikan SD",
     description:
-      "Dari daycare hingga SMA, setiap jenjang dirancang untuk memenuhi kebutuhan tumbuh kembang anak secara bertahap dan bermakna.",
+      "Menempa santri menjadi pemuda aqil baligh yang bersyukur, mengetahui dan menggunakan potensi yang dimiliki di jalan Allah.",
   },
   activityPreview: {
     label: "Aktivitas",
-    title: "Kegiatan Bermakna",
+    title: "Kegiatan Pembelajaran",
     description:
-      "Beragam aktivitas yang dirancang untuk mengasah keterampilan, membangun karakter, dan mempererat ukhuwah.",
+      "Aktivitas jelajah alam, Al-Qur'an, dan penempaan aqil baligh yang menumbuhkan karakter pemuda bersyukur.",
     items: [
       {
         id: 1,
-        title: "Ekspedisi Hutan",
+        title: "Jelajah Alam & Survival",
         category: "Alam",
         image: "/images/activity-ekspedisi.jpg",
       },
       {
         id: 2,
-        title: "Pasar Kreatif Siswa",
-        category: "Seni",
-        image: "/images/activity-pasar.jpg",
-      },
-      {
-        id: 3,
-        title: "Tahfidz Pagi",
-        category: "Akademik",
+        title: "Tahsin & Tahfidz Qur'an",
+        category: "Al-Qur'an",
         image: "/images/activity-tahfidz.jpg",
       },
       {
+        id: 3,
+        title: "Insight Learning",
+        category: "Karakter",
+        image: "/images/activity-pasar.jpg",
+      },
+      {
         id: 4,
-        title: "Olahraga Tradisional",
-        category: "Olahraga",
+        title: "Proyek Kebermanfaatan",
+        category: "Aqil Baligh",
         image: "/images/activity-olahraga.jpg",
       },
     ],
   },
   cta: {
-    title: "Siap bergabung membesarkan generasi berakhlak bersama Sekolah Alam Al-Hakim?",
+    title: "Siap mendampingi tumbuh kembang ananda menjadi pemuda aqil baligh yang bersyukur?",
     ctaText: "Daftar Sekarang",
     ctaLink: "/pendaftaran",
   },
@@ -174,7 +184,7 @@ export const ceritaContent = {
 
 export const kontakContent = {
   title: "Hubungi Kami",
-  subtitle: "Kami senang mendengar dari Anda — silakan sampaikan pertanyaan atau kunjungi kami langsung",
+  subtitle: "Informasi Lokasi & Kontak Sekolah",
   info: {
     address: "Jl. Bumi Persada No. 17, Desa Ciputri, Kec. Cianjur, Kab. Cianjur, Jawa Barat 43262",
     phone: "+62 812-3456-7890",
@@ -188,98 +198,102 @@ export const kontakContent = {
 };
 
 export const kurikulumContent = {
-  title: "Kurikulum",
-  subtitle: "Kurikulum berbasis alam yang memadukan keimanan, keilmuan, dan kepekaan lingkungan",
+  title: "Kurikulum & Domain Pembelajaran",
+  subtitle: "Pendidikan Fitrah & Aqil Baligh",
   tabs: [
     {
-      id: "keimanan",
-      label: "Keimanan & Akhlak",
+      id: "karakter_alami",
+      label: "1. Karakter Alami",
+      subtitleLabel: "Keimanan & Ketauhidan",
       description:
-        "Pondasi utama seluruh kegiatan belajar di Al-Hakim, menanamkan tauhid dan adab dalam setiap aspek kehidupan.",
+        "Menumbuhkan keimanan (kesadaran, keyakinan, hikmah, mindset hidup) sebagai fondasi kepribadian utama santri sebelum menumbuhkan karakter lainnya.",
       pillars: [
         {
-          title: "Tahfidz & Tahsin",
+          title: "Pendidikan Alam",
           description:
-            "Program menghafal dan memperindah bacaan Al-Qur'an setiap hari dengan target hafalan sesuai jenjang usia.",
+            "Jelajah alam, backpacker, supercamp, jungle survival, trekking, dan jarambah untuk mentafakkuri ayat-ayat kauni Allah.",
         },
         {
-          title: "Adab & Akhlak Islami",
+          title: "Al-Qur'an",
           description:
-            "Pembiasaan adab kepada orang tua, guru, sesama teman, dan alam melalui keteladanan dan habituation harian.",
+            "Tahsin, Tahfidz, dan Implementasi ayat-ayat Qur'ani dalam setiap aspek kehidupan sehari-hari.",
         },
         {
-          title: "Kajian & Hikmah",
+          title: "Karakter Iman & Belajar",
           description:
-            "Kajian kisah para nabi, sahabat, dan ilmuwan Muslim untuk menumbuhkan semangat meneladani teladan terbaik.",
+            "Menumbuhkan kesadaran iman terlebih dahulu agar lahir santri sebagai pembelajar yang tangguh.",
         },
       ],
     },
     {
-      id: "keilmuan",
-      label: "Keilmuan & Kecakapan",
+      id: "kedewasaan",
+      label: "2. Kedewasaan / Aqil Baligh",
+      subtitleLabel: "Karakter Pemuda Tangguh",
       description:
-        "Penguasaan ilmu pengetahuan dan keterampilan abad 21 melalui pendekatan proyek dan eksplorasi langsung.",
+        "Menempa santri agar memiliki karakter pemuda yang mandiri, bertanggung jawab, matang secara intelektual, dan terampil dalam bersosialisasi.",
       pillars: [
         {
-          title: "Literasi & Numerasi",
+          title: "Kemandirian & Tanggung Jawab",
           description:
-            "Pengembangan kemampuan membaca, menulis, dan berhitung melalui konteks nyata dan bahan-bahan alam.",
+            "Melatih sikap mandiri dan siap bertanggung jawab penuh atas tugas kehidupan dan peran diri.",
         },
         {
-          title: "Proyek & Eksperimen",
+          title: "Kecakapan Berpikir",
           description:
-            "Pembelajaran berbasis proyek (PBL) di mana siswa menyelesaikan masalah autentik dari lingkungan sekitar.",
+            "Mengasah daya pikir kritis, analitis, serta kemampuan mengambil keputusan yang bijak.",
         },
         {
-          title: "Keterampilan Abad 21",
+          title: "Kecakapan Sosial & Brothering",
           description:
-            "Pelatihan berpikir kritis, kolaborasi, kreativitas, dan komunikasi yang terintegrasi dalam setiap mata pelajaran.",
+            "Membangun kepemimpinan, adab bermasyarakat, dan menerapkan budaya brothering (silih asah asih asuh).",
         },
       ],
     },
     {
-      id: "kepekaan",
-      label: "Kepekaan Lingkungan",
+      id: "akademik",
+      label: "3. Akademik",
+      subtitleLabel: "Keilmuan Terapan",
       description:
-        "Menumbuhkan kesadaran dan tanggung jawab terhadap kelestarian alam sebagai amanah Allah.",
+        "Penguasaan konsep keilmuan dan nalar analitis melalui pengalaman belajar yang nyata, kontekstual, dan bermakna.",
       pillars: [
         {
-          title: "Kebun Sekolah",
+          title: "Sains & Observasi Alam",
           description:
-            "Setiap kelas mengelola kebun sendiri — menanam, merawat, dan memanen sebagai bagian dari pembelajaran.",
+            "Memahami hukum alam dan ilmu sains melalui laboratorium terbuka dan observasi lingkungan.",
         },
         {
-          title: "Ekspedisi & Riset Alam",
+          title: "Matematika & Logika",
           description:
-            "Kegiatan rutin menjelajah hutan, sungai, dan ekosistem lokal untuk memahami keanekaragaman hayati secara langsung.",
+            "Pengembangan berpikir logis, nalar kuantitatif, dan pemecahan masalah (problem solving).",
         },
         {
-          title: "Aksi Lingkungan",
+          title: "Literasi & Bahasa",
           description:
-            "Program pengelolaan sampah, penanaman pohon, dan kampanye lingkungan bersama masyarakat desa.",
+            "Kemampuan membaca, menulis karya bermakna, serta mengomunikasikan gagasan secara efektif.",
         },
       ],
     },
     {
-      id: "kekuatan",
-      label: "Kekuatan Fisik & Jiwa",
+      id: "kebermanfaatan",
+      label: "4. Kebermanfaatan",
+      subtitleLabel: "Insan Bersyukur & Berkemajuan",
       description:
-        "Pembinaan jasmani dan mental yang tangguh melalui aktivitas outdoor dan pembentukan karakter.",
+        "Target kompetensi santri menjadi pemuda aqil baligh yang bersyukur — mengetahui dan mendayagunakan seluruh potensi yang dimiliki di jalan Allah untuk kemaslahatan hidup.",
       pillars: [
         {
-          title: "Olahraga & Kebugaran",
+          title: "Pendayagunaan Potensi Fitrah",
           description:
-            "Aktivitas fisik harian termasuk senam pagi, pencak silat, dan olahraga tradisional untuk membangun kebugaran.",
+            "Mengetahui kelebihan dan potensi diri untuk dimanfaatkan secara maksimal di jalan Allah SWT.",
         },
         {
-          title: "Survival & Outdoor Skill",
+          title: "Insight Learning for Inside-out",
           description:
-            "Keterampilan berkemah, navigasi alam, dan pertolongan pertama yang melatih kemandirian dan ketangguhan.",
+            "Mampu mengambil hikmah pelajaran tersembunyi dari setiap pengalaman belajar dan mewujudkannya menjadi karya bermanfaat.",
         },
         {
-          title: "Mental & Resiliensi",
+          title: "Kemaslahatan Ummat",
           description:
-            "Program mentoring, jurnal refleksi, dan diskusi kelompok untuk membangun jiwa yang kuat dan adaptif.",
+            "Memberikan kontribusi nyata, solusi sosial, dan kepedulian bagi sesama serta lingkungan.",
         },
       ],
     },
@@ -287,8 +301,8 @@ export const kurikulumContent = {
 };
 
 export const aktivitasContent = {
-  title: "Aktivitas",
-  subtitle: "Beragam kegiatan yang memadukan belajar, berkarya, dan beribadah dalam keseharian siswa",
+  title: "Aktivitas Santri",
+  subtitle: "Kegiatan Belajar & Jelajah Alam",
   categories: ["Semua", "Akademik", "Alam", "Seni", "Olahraga"],
   items: [
     {
@@ -359,8 +373,8 @@ export const aktivitasContent = {
 };
 
 export const galleryContent = {
-  title: "Galeri",
-  subtitle: "Momen-momen berharga dari kegiatan belajar dan bermain di Sekolah Alam Al-Hakim",
+  title: "Galeri Sekolah",
+  subtitle: "Dokumentasi & Momen Kegiatan",
   categories: ["Semua", "Kegiatan", "Alam", "Seni", "Akademik"],
   items: [
     {
@@ -451,8 +465,8 @@ export const galleryContent = {
 };
 
 export const pendaftaranContent = {
-  title: "Pendaftaran",
-  subtitle: "Langkah mudah untuk bergabung dengan keluarga besar Sekolah Alam Al-Hakim",
+  title: "Pendaftaran Santri",
+  subtitle: "Pendaftaran Peserta Didik Baru",
   steps: [
     {
       number: 1,

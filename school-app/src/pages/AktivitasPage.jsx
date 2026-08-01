@@ -3,24 +3,26 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { aktivitasContent } from '../data/content'
+import { useContent } from '../context/ContentContext'
 import PageHeader from '../components/ui/PageHeader'
 import SectionReveal from '../components/ui/SectionReveal'
 import GoldDivider from '../components/ui/GoldDivider'
 import Lightbox from '../components/ui/Lightbox'
 
-const { title, subtitle, categories, items } = aktivitasContent
-
 export default function AktivitasPage() {
+  const { activities } = useContent()
   const [activeCategory, setActiveCategory] = useState('Semua')
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
 
+  const categories = ['Semua', 'Alam', "Al-Qur'an", 'Karakter', 'Akademik', 'Olahraga', 'Seni']
+
   const filteredItems =
     activeCategory === 'Semua'
-      ? items
-      : items.filter((item) => item.category === activeCategory)
+      ? activities
+      : activities.filter((item) => item.category === activeCategory)
 
-  const lightboxImages = items.map((item) => ({
+  const lightboxImages = activities.map((item) => ({
     src: item.image,
     alt: item.title,
   }))
@@ -34,8 +36,8 @@ export default function AktivitasPage() {
     <>
       {/* Header */}
       <PageHeader
-        title={title}
-        subtitle={subtitle}
+        title={aktivitasContent.title}
+        subtitle={aktivitasContent.subtitle}
         backgroundImage="/images/aktivitas-header.jpg"
       />
 

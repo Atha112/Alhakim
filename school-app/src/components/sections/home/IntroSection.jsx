@@ -35,10 +35,10 @@ export default function IntroSection() {
             </p>
 
             <Link
-              to="/tentang/cerita"
+              to="/tentang/kontak"
               className="font-[Jost] text-[var(--gold-primary)] text-sm tracking-[1px] inline-flex items-center gap-2 hover:text-[var(--gold-pale)] transition-colors duration-300 group hover-underline"
             >
-              Baca Cerita Kami
+              Hubungi Kontak Kami
               <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>

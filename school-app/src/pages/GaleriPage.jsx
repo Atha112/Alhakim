@@ -1,26 +1,29 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { galleryContent } from '../data/content'
+import { useContent } from '../context/ContentContext'
 import PageHeader from '../components/ui/PageHeader'
 import SectionReveal from '../components/ui/SectionReveal'
 import GoldDivider from '../components/ui/GoldDivider'
 import Lightbox from '../components/ui/Lightbox'
 
-const { title, subtitle, categories, items } = galleryContent
-
 export default function GaleriPage() {
+  const { gallery } = useContent()
   const [activeCategory, setActiveCategory] = useState('Semua')
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
 
+  const categories = ['Semua', 'Kegiatan', 'Alam', 'Seni', 'Akademik']
+
   const filteredItems =
     activeCategory === 'Semua'
-      ? items
-      : items.filter((item) => item.category === activeCategory)
+      ? gallery
+      : gallery.filter((item) => item.category === activeCategory)
 
-  const lightboxImages = items.map((item) => ({
+  const lightboxImages = gallery.map((item) => ({
     src: item.image,
     alt: item.title,
+    caption: item.description,
   }))
 
   const openLightbox = (index) => {
@@ -32,8 +35,8 @@ export default function GaleriPage() {
     <>
       {/* Header */}
       <PageHeader
-        title={title}
-        subtitle={subtitle}
+        title={galleryContent.title}
+        subtitle={galleryContent.subtitle}
         backgroundImage="/images/galeri-header.jpg"
       />
 
@@ -79,7 +82,7 @@ export default function GaleriPage() {
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
             <AnimatePresence mode="popLayout">
               {filteredItems.map((item, idx) => {
-                const globalIndex = items.findIndex((i) => i.id === item.id)
+                const globalIndex = gallery.findIndex((i) => i.id === item.id)
                 const isOdd = idx % 2 !== 0
                 return (
                   <motion.div

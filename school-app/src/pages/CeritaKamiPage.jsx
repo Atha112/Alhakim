@@ -31,16 +31,14 @@ export default function CeritaKamiPage() {
       {sections.map((section, index) => (
         <section
           key={index}
-          className={`section-gap ${
-            index % 2 === 0 ? 'bg-[var(--bg-primary)]' : 'bg-[var(--bg-secondary)]'
-          }`}
+          className={`section-gap ${index % 2 === 0 ? 'bg-[var(--bg-primary)]' : 'bg-[var(--bg-secondary)]'
+            }`}
         >
           <div className="container-site">
             <SectionReveal>
               <div
-                className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${
-                  section.imagePosition === 'right' ? 'md:[&>*:first-child]:order-2' : ''
-                }`}
+                className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${section.imagePosition === 'right' ? 'md:[&>*:first-child]:order-2' : ''
+                  }`}
               >
                 {/* Image */}
                 <motion.div

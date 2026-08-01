@@ -3,31 +3,29 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function LoadingScreen() {
   const [show, setShow] = useState(false)
-  const [mounted, setMounted] = useState(true)
+  const [mounted, setMounted] = useState(() => {
+    return !sessionStorage.getItem('alhakim_visited')
+  })
 
   useEffect(() => {
-    const visited = sessionStorage.getItem('alhakim_visited')
-    if (visited) {
-      setMounted(false)
-      return
-    }
+    if (!mounted) return
 
     setShow(true)
 
     const exitTimer = setTimeout(() => {
       setShow(false)
-    }, 1700)
+    }, 1500)
 
     const unmountTimer = setTimeout(() => {
       sessionStorage.setItem('alhakim_visited', 'true')
       setMounted(false)
-    }, 2600)
+    }, 2200)
 
     return () => {
       clearTimeout(exitTimer)
       clearTimeout(unmountTimer)
     }
-  }, [])
+  }, [mounted])
 
   if (!mounted) return null
 

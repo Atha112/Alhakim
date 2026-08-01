@@ -5,28 +5,18 @@ import { schoolInfo } from '../../data/content'
 
 const NAV_GROUPS = [
   {
-    label: 'Tentang',
+    label: 'Navigasi',
     links: [
-      { name: 'Cerita Kami', to: '/tentang/cerita' },
-      { name: 'Kontak Kami', to: '/tentang/kontak' },
-    ],
-  },
-  {
-    label: 'Program',
-    links: [
-      { name: 'Daycare', to: '/program/daycare' },
-      { name: 'Preschool', to: '/program/preschool' },
-      { name: 'SD', to: '/program/sd' },
-      { name: 'SMP', to: '/program/smp' },
-      { name: 'SMA', to: '/program/sma' },
+      { name: 'Program SD', to: '/program/sd' },
+      { name: 'Kurikulum', to: '/kurikulum' },
+      { name: 'Aktivitas', to: '/aktivitas' },
     ],
   },
   {
     label: 'Lainnya',
     links: [
-      { name: 'Kurikulum', to: '/kurikulum' },
-      { name: 'Aktivitas', to: '/aktivitas' },
       { name: 'Galeri', to: '/galeri' },
+      { name: 'Kontak Kami', to: '/tentang/kontak' },
       { name: 'Pendaftaran', to: '/pendaftaran' },
     ],
   },
@@ -39,87 +29,8 @@ const SOCIALS = [
 ]
 
 export default function Footer() {
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
-  const [emailError, setEmailError] = useState('')
-
-  const handleSubscribe = (e) => {
-    e.preventDefault()
-    const trimmed = email.trim()
-
-    // Validate email
-    if (!trimmed) {
-      setEmailError('Alamat email wajib diisi')
-      return
-    }
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailPattern.test(trimmed)) {
-      setEmailError('Format email tidak valid')
-      return
-    }
-
-    setEmailError('')
-    setSubscribed(true)
-    setEmail('')
-  }
-
   return (
     <footer className="border-t border-[var(--border-gold)] bg-[var(--bg-secondary)] transition-colors duration-500">
-      {/* ── Newsletter banner ── */}
-      <div className="border-b border-[var(--border-gold)]">
-        <div className="container-site py-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[var(--gold-ghost)] border border-[var(--border-gold)] flex items-center justify-center shrink-0">
-                <Send size={18} className="text-[var(--gold-primary)]" />
-              </div>
-              <div>
-                <h3 className="font-[Cormorant_Garamond] font-light text-xl tracking-[0.04em] text-[var(--text-primary)] mb-1">
-                  Dapatkan Info Terbaru
-                </h3>
-                <p className="font-[Jost] text-sm text-[var(--text-muted)]">
-                  Berlangganan informasi pendaftaran dan kegiatan sekolah
-                </p>
-              </div>
-            </div>
-            {subscribed ? (
-              <div className="flex items-center gap-2 text-[var(--gold-primary)]">
-                <Heart size={16} />
-                <span className="font-[Jost] text-sm">Terima kasih telah berlangganan!</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex flex-col md:flex-row gap-2 w-full md:w-auto">
-                <div className="flex gap-2 w-full md:w-auto">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value)
-                      if (emailError) setEmailError('')
-                    }}
-                    placeholder="Alamat email Anda"
-                    required
-                    className={`flex-1 md:w-72 bg-[var(--bg-card)] border rounded-[2px] px-4 py-2.5 font-[Jost] text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none transition-colors duration-300 ${
-                      emailError
-                        ? 'border-red-400 focus:border-red-400'
-                        : 'border-[var(--border-subtle)] focus:border-[var(--gold-primary)]'
-                    }`}
-                  />
-                  <button
-                    type="submit"
-                    className="cta-primary !py-2.5 !px-5 !text-[11px] shrink-0"
-                  >
-                    Langganan
-                  </button>
-                </div>
-                {emailError && (
-                  <p className="text-red-400 text-xs font-[Jost]">{emailError}</p>
-                )}
-              </form>
-            )}
-          </div>
-        </div>
-      </div>
 
       {/* ── Main columns ── */}
       <div className="container-site py-14">
@@ -239,7 +150,10 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {schoolInfo.name}. All rights reserved.
           </p>
           <p className="text-xs text-[var(--text-muted)] flex items-center gap-1">
-            Dibuat dengan <Heart size={10} className="text-[var(--gold-primary)] inline" /> untuk pendidikan Indonesia
+            Dibuat dengan <Heart size={10} className="text-[var(--gold-primary)] inline" /> untuk pendidikan Indonesia |{' '}
+            <Link to="/admin/login" className="hover:text-[var(--gold-primary)] transition-colors">
+              Portal Admin
+            </Link>
           </p>
         </div>
       </div>

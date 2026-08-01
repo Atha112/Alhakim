@@ -115,54 +115,7 @@ export default function ProgramDetailPage() {
         </div>
       </section>
 
-      {/* Other Programs */}
-      <section className="section-gap bg-[var(--bg-secondary)] border-t border-[var(--border-gold)]">
-        <div className="container-site">
-          <SectionReveal>
-            <p className="text-label text-[var(--gold-primary)] mb-3">
-              Program Lainnya
-            </p>
-            <h2 className="heading-md text-[var(--text-primary)] mb-10">
-              Jelajahi Jenjang Pendidikan Kami
-            </h2>
-          </SectionReveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {otherPrograms.map((other, index) => (
-              <SectionReveal key={other.id} delay={index * 0.08}>
-                <Link to={`/program/${other.slug}`} className="group block">
-                  <motion.div
-                    className="overflow-hidden rounded-[4px] border border-[var(--border-subtle)] hover:border-[var(--gold-dim)] transition-colors duration-300"
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {/* Thumbnail */}
-                    <div className="aspect-[4/3] relative overflow-hidden bg-[var(--bg-card)] img-zoom-container">
-                      <img
-                        src={other.image}
-                        alt={other.name}
-                        className="w-full h-full object-cover img-editorial"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-[var(--image-overlay)] group-hover:opacity-0 transition-opacity duration-500" />
-                    </div>
-
-                    {/* Info */}
-                    <div className="p-3 md:p-4 bg-[var(--bg-card)]">
-                      <p className="font-[Jost] uppercase text-[10px] tracking-[3px] text-[var(--gold-primary)] mb-1">
-                        {other.ageRange}
-                      </p>
-                      <h3 className="font-[Cormorant_Garamond] font-light text-[var(--text-primary)] text-sm md:text-base tracking-[0.04em] line-clamp-2 group-hover:text-[var(--gold-primary)] transition-colors duration-300">
-                        {other.name}
-                      </h3>
-                    </div>
-                  </motion.div>
-                </Link>
-              </SectionReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Back to top link */}
       <div className="container-site">

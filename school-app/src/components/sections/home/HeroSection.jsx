@@ -36,14 +36,14 @@ export default function HeroSection() {
           <rect width="100%" height="100%" filter="url(#hero-grain)" />
         </svg>
       </div>
-      <div className="absolute inset-x-0 bottom-[10vh] z-20">
+      <div className="absolute inset-x-0 top-[22%] md:top-auto md:bottom-[12vh] z-20">
         <div className="container-site">
           <div className="max-w-xl">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-label text-[var(--gold-primary)] mb-4 flex items-center gap-3"
+              className="text-label text-[var(--gold-primary)] mb-3 flex items-center gap-3"
             >
               <span className="inline-block w-8 h-px bg-[var(--gold-primary)]" />
               {label}
@@ -53,7 +53,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="heading-xl text-[var(--text-primary)] mb-6"
+              className="heading-xl text-[var(--text-primary)] mb-4 md:mb-6"
             >
               {titleLines.map((line, i) => (
                 <React.Fragment key={i}>
@@ -67,7 +67,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-              className="font-[Jost] font-light text-[var(--text-secondary)] text-lg leading-relaxed max-w-[480px] mb-8"
+              className="font-[Jost] font-light text-[var(--text-secondary)] text-base md:text-lg leading-relaxed max-w-[480px] mb-6 md:mb-8"
             >
               {subtitle}
             </motion.p>

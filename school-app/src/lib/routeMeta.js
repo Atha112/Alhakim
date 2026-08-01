@@ -18,15 +18,15 @@ export const routeMeta = {
     ogImage: '/images/kontak-header.jpg',
   },
   '/program': {
-    title: 'Program',
-    docTitle: 'Program — Sekolah Alam Al-Hakim',
-    description: 'Dari usia dini hingga jenjang SMA, setiap program dirancang untuk menumbuhkan fitrah terbaik setiap anak melalui pendidikan berbasis alam.',
+    title: 'Program SD',
+    docTitle: 'Program SD — Sekolah Alam Al-Hakim',
+    description: 'Pendidikan SD berbasis alam yang menargetkan santri menjadi pemuda aqil baligh yang bersyukur.',
     ogImage: '/images/program-sd.jpg',
   },
-  '/program/:slug': {
-    title: 'Program',
-    docTitle: 'Program — Sekolah Alam Al-Hakim',
-    description: 'Program pendidikan berbasis alam dari daycare hingga SMA yang dirancang untuk menumbuhkan keimanan, cinta alam, dan kemandirian setiap peserta didik.',
+  '/program/sd': {
+    title: 'Sekolah Dasar',
+    docTitle: 'Sekolah Dasar — Sekolah Alam Al-Hakim',
+    description: 'Pendidikan SD berbasis alam yang menargetkan santri menjadi pemuda aqil baligh yang bersyukur.',
     ogImage: '/images/program-sd.jpg',
   },
   '/kurikulum': {

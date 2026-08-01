@@ -31,19 +31,9 @@ export default function ProgramPage() {
       {/* Program Grid */}
       <section className="section-gap">
         <div className="container-site">
-          {/* First 3 programs — 3-col on desktop, 2-col on tablet, 1-col mobile */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            {programs.slice(0, 3).map((program, index) => (
-              <SectionReveal key={program.id} delay={index * 0.1}>
-                <ProgramCard program={program} />
-              </SectionReveal>
-            ))}
-          </div>
-
-          {/* Remaining 2 programs — 2-col centered */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[calc(66.666%+0.75rem)] lg:max-w-[calc(66.666%+0.75rem)] mx-auto lg:mx-auto">
-            {programs.slice(3).map((program, index) => (
-              <SectionReveal key={program.id} delay={(index + 3) * 0.1}>
+          <div className="max-w-md mx-auto">
+            {programs.map((program) => (
+              <SectionReveal key={program.id}>
                 <ProgramCard program={program} />
               </SectionReveal>
             ))}

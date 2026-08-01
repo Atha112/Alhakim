@@ -2,19 +2,11 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react'
 import { kontakContent } from '../data/content'
+import { useContent } from '../context/ContentContext'
 import PageHeader from '../components/ui/PageHeader'
 import SectionReveal from '../components/ui/SectionReveal'
 import GoldDivider from '../components/ui/GoldDivider'
 import Button from '../components/ui/Button'
-
-const { title, subtitle, info, cta } = kontakContent
-
-const contactItems = [
-  { icon: MapPin, label: 'Alamat', value: info.address },
-  { icon: Phone, label: 'Telepon', value: info.phone },
-  { icon: Mail, label: 'Email', value: info.email },
-  { icon: Clock, label: 'Jam Operasional', value: info.hours },
-]
 
 const errorVariants = {
   initial: { opacity: 0, y: -4, height: 0 },
@@ -41,6 +33,17 @@ function validateField(name, value) {
 }
 
 export default function KontakKamiPage() {
+  const { texts } = useContent()
+  const info = (texts && texts.kontak && texts.kontak.info) ? texts.kontak.info : kontakContent.info
+  const cta = (texts && texts.kontak && texts.kontak.cta) ? texts.kontak.cta : kontakContent.cta
+
+  const contactItems = [
+    { icon: MapPin, label: 'Alamat', value: info.address },
+    { icon: Phone, label: 'Telepon', value: info.phone },
+    { icon: Mail, label: 'Email', value: info.email },
+    { icon: Clock, label: 'Jam Operasional', value: info.hours },
+  ]
+
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
   const [errors, setErrors] = useState({})
@@ -48,7 +51,6 @@ export default function KontakKamiPage() {
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
-    // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors((prev) => {
         const next = { ...prev }
@@ -60,8 +62,6 @@ export default function KontakKamiPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    // Validate all fields
     const newErrors = {}
     let hasError = false
     for (const field of Object.keys(validationRules)) {
@@ -71,12 +71,10 @@ export default function KontakKamiPage() {
         hasError = true
       }
     }
-
     if (hasError) {
       setErrors(newErrors)
       return
     }
-
     setSubmitted(true)
   }
 
@@ -93,12 +91,25 @@ export default function KontakKamiPage() {
     <>
       {/* Header */}
       <PageHeader
-        title={title}
-        subtitle={subtitle}
+        title={kontakContent.title}
+        subtitle={kontakContent.subtitle}
         backgroundImage="/images/kontak-header.jpg"
       />
 
       {/* Contact info section */}
+      <section className="section-gap pb-0">
+        <div className="container-site">
+          <SectionReveal>
+            <div className="text-center max-w-[800px] mx-auto mb-10">
+              <p className="font-[Jost] font-light text-[var(--text-secondary)] text-lg leading-relaxed">
+                Sekolah Alam Al-Hakim membuka komunikasi seluas-luasnya bagi orang tua yang ingin mengenal lebih jauh sistem pendidikan fitrah dan aqil baligh kami.
+              </p>
+              <GoldDivider className="mt-6" />
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       <section className="section-gap">
         <div className="container-site">
           <SectionReveal>

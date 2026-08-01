@@ -36,40 +36,12 @@ export default function ProgramPreview() {
           </div>
         </SectionReveal>
 
-        {/* Desktop grid */}
-        <div className="hidden lg:grid grid-cols-5 gap-5">
+        {/* Centered Single Program (SD) */}
+        <div className="max-w-md mx-auto">
           {programs.map((program, index) => (
             <SectionReveal key={program.id} delay={index * 0.08}>
               <ProgramCard program={program} />
             </SectionReveal>
-          ))}
-        </div>
-
-        {/* Tablet grid */}
-        <div className="hidden md:grid lg:hidden grid-cols-3 gap-5">
-          {programs.slice(0, 3).map((program, index) => (
-            <SectionReveal key={program.id} delay={index * 0.08}>
-              <ProgramCard program={program} />
-            </SectionReveal>
-          ))}
-        </div>
-        <div className="hidden md:grid lg:hidden grid-cols-2 gap-5 mt-5 max-w-[calc(66.666%+0.625rem)] mx-auto">
-          {programs.slice(3).map((program, index) => (
-            <SectionReveal key={program.id} delay={0.24 + index * 0.08}>
-              <ProgramCard program={program} />
-            </SectionReveal>
-          ))}
-        </div>
-
-        {/* Mobile horizontal scroll */}
-        <div className="md:hidden flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 scroll-x-custom">
-          {programs.map((program) => (
-            <div
-              key={program.id}
-              className="snap-start min-w-[280px] flex-shrink-0"
-            >
-              <ProgramCard program={program} />
-            </div>
           ))}
         </div>
 

@@ -1,5 +1,5 @@
 import HeroSection from '../components/sections/home/HeroSection'
-import IntroSection from '../components/sections/home/IntroSection'
+import RebuiltFilosofiSection from '../components/sections/home/RebuiltFilosofiSection'
 import ProgramPreview from '../components/sections/home/ProgramPreview'
 import ActivityPreview from '../components/sections/home/ActivityPreview'
 import CTASection from '../components/sections/home/CTASection'
@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <IntroSection />
+      <RebuiltFilosofiSection />
       <GoldSeparator />
       <ProgramPreview />
       <GoldSeparator />

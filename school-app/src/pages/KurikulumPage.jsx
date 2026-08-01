@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { BookOpen, Lightbulb, Leaf, Dumbbell } from 'lucide-react'
+import { Heart, UserCheck, BookOpen, Sparkles } from 'lucide-react'
 import { kurikulumContent } from '../data/content'
 import PageHeader from '../components/ui/PageHeader'
 import SectionReveal from '../components/ui/SectionReveal'
@@ -9,10 +9,10 @@ import GoldDivider from '../components/ui/GoldDivider'
 const { title, subtitle, tabs } = kurikulumContent
 
 const tabIcons = {
-  keimanan: BookOpen,
-  keilmuan: Lightbulb,
-  kepekaan: Leaf,
-  kekuatan: Dumbbell,
+  karakter_alami: Heart,
+  kedewasaan: UserCheck,
+  akademik: BookOpen,
+  kebermanfaatan: Sparkles,
 }
 
 export default function KurikulumPage() {
@@ -46,10 +46,9 @@ export default function KurikulumPage() {
                     transition={{ duration: 0.4, delay: i * 0.05, ease: [0.25, 0.1, 0.25, 1] }}
                     className={`
                       relative flex items-center gap-2 text-label px-4 py-3 whitespace-nowrap transition-colors duration-300
-                      ${
-                        activeTab === tab.id
-                          ? 'text-[var(--gold-primary)]'
-                          : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
+                      ${activeTab === tab.id
+                        ? 'text-[var(--gold-primary)]'
+                        : 'text-[var(--text-muted)] hover:text-[var(--text-secondary)]'
                       }
                     `}
                   >

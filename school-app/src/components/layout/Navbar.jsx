@@ -4,27 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
 const NAV_ITEMS = [
-  {
-    label: 'Tentang Kami',
-    dropdown: [
-      { label: 'Cerita Kami', to: '/tentang/cerita' },
-      { label: 'Kontak Kami', to: '/tentang/kontak' },
-    ],
-  },
-  {
-    label: 'Program',
-    dropdown: [
-      { label: 'Semua Program', to: '/program' },
-      { label: 'Daycare', to: '/program/daycare' },
-      { label: 'Preschool', to: '/program/preschool' },
-      { label: 'Sekolah Dasar', to: '/program/sd' },
-      { label: 'Sekolah Menengah Pertama', to: '/program/smp' },
-      { label: 'Sekolah Menengah Atas', to: '/program/sma' },
-    ],
-  },
+  { label: 'Program SD', to: '/program/sd' },
   { label: 'Kurikulum', to: '/kurikulum' },
   { label: 'Aktivitas', to: '/aktivitas' },
   { label: 'Galeri', to: '/galeri' },
+  { label: 'Kontak Kami', to: '/tentang/kontak' },
 ]
 
 function DropdownMenu({ items, onClose }) {

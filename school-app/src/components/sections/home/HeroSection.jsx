@@ -19,8 +19,8 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(20,20,22,0.75)] to-[rgba(20,20,22,0.3)] z-[1]" />
+      {/* Dark overlay gradient for maximum text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(20,20,22,0.85)] via-[rgba(20,20,22,0.5)] to-[rgba(20,20,22,0.25)] z-[1]" />
 
       {/* Grain overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.035] z-[2]">
@@ -36,7 +36,9 @@ export default function HeroSection() {
           <rect width="100%" height="100%" filter="url(#hero-grain)" />
         </svg>
       </div>
-      <div className="absolute inset-x-0 top-[22%] md:top-auto md:bottom-[12vh] z-20">
+
+      {/* Responsive Content Alignment Container */}
+      <div className="absolute inset-0 z-20 flex items-center pt-20 md:pt-24 pb-16">
         <div className="container-site">
           <div className="max-w-xl">
             <motion.p
@@ -53,7 +55,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="heading-xl text-[var(--text-primary)] mb-4 md:mb-6"
+              className="heading-xl text-[var(--text-primary)] mb-3 sm:mb-4 md:mb-6 leading-tight drop-shadow-lg"
             >
               {titleLines.map((line, i) => (
                 <React.Fragment key={i}>
@@ -67,7 +69,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-              className="font-[Jost] font-light text-[var(--text-secondary)] text-base md:text-lg leading-relaxed max-w-[480px] mb-6 md:mb-8"
+              className="font-[Jost] font-light text-[var(--text-secondary)] text-sm sm:text-base md:text-lg leading-relaxed max-w-[480px] mb-6 md:mb-8"
             >
               {subtitle}
             </motion.p>

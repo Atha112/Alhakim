@@ -63,8 +63,10 @@
 .heading-md { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(1.5rem,3vw + 0.5rem,2.25rem); letter-spacing: 0.04em; }
 .text-label { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 11px; text-transform: uppercase; letter-spacing: 5px; }
 
-.container-site { width: 100%; max-width: var(--container-max); margin-inline: auto; padding-inline: 1.5rem; }
-.section-gap { padding-block: var(--section-gap); }
+.container-site { width: 100%; max-width: var(--container-max); margin-inline: auto; padding-inline: 1.25rem; }
+@media (min-width: 640px) { .container-site { padding-inline: 2rem; } }
+
+.section-gap { padding-block: clamp(3.5rem, 8vw, 7rem); }
 
 .cta-primary {
   display: inline-flex;

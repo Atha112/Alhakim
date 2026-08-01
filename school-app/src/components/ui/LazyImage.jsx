@@ -34,10 +34,10 @@ export default function LazyImage({
       : 'ratio-landscape'
 
   return (
-    <div ref={ref} className={`${ratioClass} relative overflow-hidden ${className}`}>
+    <div ref={ref} className={`${ratioClass} relative overflow-hidden w-full h-full rounded-inherit ${className}`}>
       {/* Blur placeholder */}
       <div
-        className={`absolute inset-0 bg-[var(--bg-secondary)] transition-opacity duration-700 ${
+        className={`absolute inset-0 bg-[var(--bg-secondary)] transition-opacity duration-700 overflow-hidden ${
           loaded ? 'opacity-0' : 'opacity-100'
         }`}
       >
@@ -58,7 +58,7 @@ export default function LazyImage({
       )}
 
       {/* Optional overlay */}
-      {overlay && <div className="absolute inset-0 bg-[var(--image-overlay)]" />}
+      {overlay && <div className="absolute inset-0 bg-[var(--image-overlay)] pointer-events-none" />}
     </div>
   )
 }

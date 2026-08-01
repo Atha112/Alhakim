@@ -8,17 +8,17 @@ export default function ProgramCard({ program }) {
 
   return (
     <motion.div
-      className="content-card !p-0 overflow-hidden flex flex-col group"
+      className="content-card !p-0 overflow-hidden flex flex-col group rounded-[4px]"
       whileHover={{ y: -4 }}
       transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {/* Image area with lazy loading */}
-      <div className="img-zoom-container">
+      <div className="img-zoom-container relative w-full overflow-hidden rounded-t-[4px]">
         <LazyImage
           src={program.image}
           alt={name}
           aspectRatio="portrait"
-          className="bg-[var(--bg-secondary)]"
+          className="bg-[var(--bg-secondary)] w-full h-full object-cover rounded-t-[4px]"
         />
       </div>
 

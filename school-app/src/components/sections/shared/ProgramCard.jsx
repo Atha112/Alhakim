@@ -8,12 +8,16 @@ export default function ProgramCard({ program }) {
 
   return (
     <motion.div
-      className="content-card !p-0 overflow-hidden flex flex-col group rounded-[4px]"
+      className="content-card !p-0 overflow-hidden flex flex-col group rounded-[4px] relative isolation-auto"
+      style={{ borderRadius: '4px', overflow: 'hidden' }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {/* Image area with lazy loading */}
-      <div className="img-zoom-container relative w-full overflow-hidden rounded-t-[4px]">
+      <div
+        className="img-zoom-container relative w-full overflow-hidden rounded-t-[4px]"
+        style={{ borderTopLeftRadius: '4px', borderTopRightRadius: '4px', overflow: 'hidden' }}
+      >
         <LazyImage
           src={program.image}
           alt={name}

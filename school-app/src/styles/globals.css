@@ -52,10 +52,18 @@
   button { cursor: pointer; border: none; background: none; font-family: inherit; }
   img { display: block; max-width: 100%; }
   ::selection { background-color: rgba(184,150,62,0.15); color: var(--gold-light); }
-  ::-webkit-scrollbar { width: 5px; }
+  
+  /* Standard Clean Scrollbar Without Side Gap */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg-primary); }
   ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+  
+  /* Disable custom scrollbar width on mobile touch devices to eliminate side strip gap */
+  @media (max-width: 768px) {
+    ::-webkit-scrollbar { width: 0px; display: none; }
+    html, body { scrollbar-width: none; -ms-overflow-style: none; }
+  }
 }
 
 .heading-xl { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.5rem,5vw + 1rem,4.5rem); letter-spacing: 0.08em; line-height: 1.05; }
@@ -188,6 +196,14 @@ select:focus-visible {
 select option {
   background-color: var(--bg-card);
   color: var(--text-primary);
+}
+
+.img-zoom-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  clip-path: inset(0 round 4px);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .img-zoom-container:hover .img-editorial,

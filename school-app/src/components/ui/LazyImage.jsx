@@ -34,7 +34,14 @@ export default function LazyImage({
       : 'ratio-landscape'
 
   return (
-    <div ref={ref} className={`${ratioClass} relative overflow-hidden w-full h-full rounded-inherit ${className}`}>
+    <div
+      ref={ref}
+      className={`${ratioClass} relative overflow-hidden w-full h-full rounded-inherit ${className}`}
+      style={{
+        clipPath: 'inset(0 round 4px)',
+        WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+      }}
+    >
       {/* Blur placeholder */}
       <div
         className={`absolute inset-0 bg-[var(--bg-secondary)] transition-opacity duration-700 overflow-hidden ${

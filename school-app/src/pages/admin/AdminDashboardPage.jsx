@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -75,17 +75,17 @@ export default function AdminDashboardPage() {
       <AnimatePresence>
         {toast.show && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className={`fixed top-6 right-6 z-[100] px-5 py-3 rounded border flex items-center gap-3 shadow-xl ${
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            className={`fixed top-6 right-6 z-[100] px-5 py-3 rounded border flex items-center gap-3 shadow-2xl backdrop-blur-md ${
               toast.type === 'success'
-                ? 'bg-[var(--bg-card)] border-[var(--gold-primary)] text-[var(--gold-light)]'
-                : 'bg-red-950 border-red-500 text-red-200'
+                ? 'bg-[var(--bg-card)]/90 border-[var(--gold-primary)] text-[var(--gold-light)]'
+                : 'bg-red-950/90 border-red-500 text-red-200'
             }`}
           >
-            <CheckCircle size={18} />
-            <span className="text-sm font-[Jost]">{toast.message}</span>
+            <CheckCircle size={18} className="shrink-0" />
+            <span className="text-sm font-[Jost] font-medium">{toast.message}</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -551,9 +551,23 @@ function GaleriAdminTab({
             />
           </div>
 
-          <Button variant="primary" type="submit" className="w-full justify-center">
-            {editingId ? 'Simpan Perubahan' : 'Tambah Foto Galeri'}
-          </Button>
+          <div className="flex gap-2 pt-2">
+            <Button variant="primary" type="submit" className="flex-1 justify-center">
+              {editingId ? 'Simpan Perubahan' : 'Tambah Foto Galeri'}
+            </Button>
+            {editingId && (
+              <Button
+                variant="outline"
+                type="button"
+                onClick={() => {
+                  setEditingId(null)
+                  setForm({ title: '', category: 'Kegiatan', description: '', image: '' })
+                }}
+              >
+                Batal
+              </Button>
+            )}
+          </div>
         </form>
       </div>
 
@@ -569,9 +583,15 @@ function GaleriAdminTab({
                   <button
                     onClick={() => {
                       setEditingId(item.id)
-                      setForm(item)
+                      setForm({
+                        title: item.title || '',
+                        category: item.category || 'Kegiatan',
+                        description: item.description || '',
+                        image: item.image || '',
+                      })
                     }}
-                    className="p-2 bg-[var(--gold-primary)] text-black rounded-full"
+                    className="p-2 bg-[var(--gold-primary)] text-black rounded-full hover:scale-110 transition-transform"
+                    title="Edit foto"
                   >
                     <Edit size={14} />
                   </button>
@@ -582,7 +602,8 @@ function GaleriAdminTab({
                         triggerToast('Foto galeri dihapus')
                       }
                     }}
-                    className="p-2 bg-red-500 text-white rounded-full"
+                    className="p-2 bg-red-500 text-white rounded-full hover:scale-110 transition-transform"
+                    title="Hapus foto"
                   >
                     <Trash2 size={14} />
                   </button>
@@ -601,7 +622,13 @@ function GaleriAdminTab({
 // TAB 4: TEKS ADMIN TAB (EDIT CONTACT & TEXTS)
 // ============================================================================
 function TeksAdminTab({ texts, updateTexts, triggerToast }) {
-  const [kontakForm, setKontakForm] = useState(texts.kontak.info)
+  const [kontakForm, setKontakForm] = useState(texts?.kontak?.info || {})
+
+  useEffect(() => {
+    if (texts?.kontak?.info) {
+      setKontakForm(texts.kontak.info)
+    }
+  }, [texts])
 
   const handleSaveKontak = (e) => {
     e.preventDefault()

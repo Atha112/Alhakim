@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false)
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div className="fixed bottom-6 right-5 z-[80] flex items-center gap-3 pb-[env(safe-area-inset-bottom)] pr-[env(safe-area-inset-right)]">
       <AnimatePresence>
         {showTooltip && (
           <motion.div

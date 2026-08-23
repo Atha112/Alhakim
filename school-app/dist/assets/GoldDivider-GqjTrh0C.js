@@ -1,1 +1,0 @@
-import{O as e,S as t}from"./index-2UlPYCMd.js";e();var n=t();function r({className:e=``,align:t=`center`}){return(0,n.jsx)(`div`,{className:[`w-[60px] h-px`,`bg-[var(--gold-primary)] opacity-60`,t===`left`?`!ml-0`:t===`right`?`!mr-0`:`mx-auto`,e].join(` `)})}export{r as t};

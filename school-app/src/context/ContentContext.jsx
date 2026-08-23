@@ -188,11 +188,18 @@ export function ContentProvider({ children }) {
     setTexts((prev) => ({ ...prev, ...newTexts }))
   }
 
+  const resetPin = () => {
+    localStorage.setItem(STORAGE_KEYS.PIN, DEFAULT_PIN)
+    setAdminPin(DEFAULT_PIN)
+    return { success: true, message: `PIN admin berhasil di-reset ke bawaan: ${DEFAULT_PIN}` }
+  }
+
   // ── Reset to Default ──
   const resetToDefault = () => {
     localStorage.removeItem(STORAGE_KEYS.TEXTS)
     localStorage.removeItem(STORAGE_KEYS.ACTIVITIES)
     localStorage.removeItem(STORAGE_KEYS.GALLERY)
+    resetPin()
     setTexts({
       schoolInfo: defaultSchoolInfo,
       visiMisi: defaultVisiMisiContent,
@@ -212,6 +219,7 @@ export function ContentProvider({ children }) {
         login,
         logout,
         changePin,
+        resetPin,
         texts,
         updateTexts,
         activities,

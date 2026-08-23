@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Lock, ShieldAlert, ArrowRight } from 'lucide-react'
+import { Lock, ShieldAlert, ArrowRight, RotateCcw, CheckCircle } from 'lucide-react'
 import { useContent } from '../../context/ContentContext'
 import Button from '../../components/ui/Button'
 import GoldDivider from '../../components/ui/GoldDivider'
@@ -9,7 +9,8 @@ import GoldDivider from '../../components/ui/GoldDivider'
 export default function AdminLoginPage() {
   const [pin, setPin] = useState('')
   const [error, setError] = useState('')
-  const { login } = useContent()
+  const [infoMsg, setInfoMsg] = useState('')
+  const { login, resetPin } = useContent()
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
@@ -24,6 +25,16 @@ export default function AdminLoginPage() {
       navigate('/admin')
     } else {
       setError(result.message)
+    }
+  }
+
+  const handleResetPin = () => {
+    if (window.confirm('Reset PIN ke PIN bawaan awal (alhakim2026)?')) {
+      const res = resetPin()
+      setPin('alhakim2026')
+      setError('')
+      setInfoMsg(res.message)
+      setTimeout(() => setInfoMsg(''), 4000)
     }
   }
 
@@ -49,6 +60,13 @@ export default function AdminLoginPage() {
           </p>
           <GoldDivider className="mt-4" />
         </div>
+
+        {infoMsg && (
+          <div className="mb-4 p-3 rounded bg-[var(--bg-card)] border border-[var(--gold-primary)] text-[var(--gold-light)] text-xs font-[Jost] flex items-center gap-2 shadow">
+            <CheckCircle size={16} className="shrink-0" />
+            <span>{infoMsg}</span>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div>
@@ -81,10 +99,17 @@ export default function AdminLoginPage() {
           </Button>
         </form>
 
-        <div className="mt-8 pt-6 border-t border-[var(--border-subtle)] text-center">
+        <div className="mt-8 pt-6 border-t border-[var(--border-subtle)] flex flex-col items-center gap-2 text-center">
           <p className="text-[11px] text-[var(--text-muted)]">
-            PIN Bawaan Awal: <code className="text-[var(--gold-primary)]">alhakim2026</code>
+            PIN Bawaan Awal: <code className="text-[var(--gold-primary)] font-semibold">alhakim2026</code>
           </p>
+          <button
+            type="button"
+            onClick={handleResetPin}
+            className="text-xs font-[Jost] text-[var(--gold-primary)] hover:underline flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity mt-1"
+          >
+            <RotateCcw size={12} /> Reset PIN ke Default (alhakim2026)
+          </button>
         </div>
       </motion.div>
     </div>

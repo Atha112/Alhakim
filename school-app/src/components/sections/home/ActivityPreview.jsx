@@ -12,7 +12,7 @@ export default function ActivityPreview() {
   const items = activityPreview.items.slice(0, 4)
 
   return (
-    <section className="section-gap bg-[var(--bg-secondary)] relative overflow-hidden">
+    <section className="section-gap bg-[#141414] relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-pattern-diagonal opacity-20 pointer-events-none" />
 

@@ -1,5 +1,10 @@
 import HeroSection from '../components/sections/home/HeroSection'
+import EditorialIntroSection from '../components/sections/home/EditorialIntroSection'
+import VisiBannerSection from '../components/sections/home/VisiBannerSection'
+import MisiSection from '../components/sections/home/MisiSection'
+import MottoBannerSection from '../components/sections/home/MottoBannerSection'
 import RebuiltFilosofiSection from '../components/sections/home/RebuiltFilosofiSection'
+import DomainPembelajaranSection from '../components/sections/home/DomainPembelajaranSection'
 import ProgramPreview from '../components/sections/home/ProgramPreview'
 import ActivityPreview from '../components/sections/home/ActivityPreview'
 import CTASection from '../components/sections/home/CTASection'
@@ -16,8 +21,12 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <EditorialIntroSection />
+      <VisiBannerSection />
+      <MisiSection />
+      <MottoBannerSection />
       <RebuiltFilosofiSection />
-      <GoldSeparator />
+      <DomainPembelajaranSection />
       <ProgramPreview />
       <GoldSeparator />
       <ActivityPreview />

@@ -10,7 +10,7 @@ const { cta } = homepageContent
 
 export default function CTASection() {
   return (
-    <section className="section-gap bg-[var(--bg-secondary)] border-t border-[var(--border-gold)] relative overflow-hidden">
+    <section className="section-gap bg-[#141414] border-t border-[var(--border-gold)] relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-pattern-dots opacity-20 pointer-events-none" />
 

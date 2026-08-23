@@ -30,7 +30,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--border-gold)] bg-[var(--bg-secondary)] transition-colors duration-500">
+    <footer className="border-t border-[var(--border-gold)] bg-[#141414] transition-colors duration-500">
 
       {/* ── Main columns ── */}
       <div className="container-site py-14">

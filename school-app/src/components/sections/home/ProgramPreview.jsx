@@ -10,7 +10,7 @@ export default function ProgramPreview() {
   const { label, title, description } = homepageContent.programPreview
 
   return (
-    <section className="section-gap bg-[var(--bg-primary)] relative overflow-hidden">
+    <section className="section-gap bg-[#141414] relative overflow-hidden">
       {/* Decorative corner */}
       <div className="absolute top-0 right-0 w-64 h-64 border-l border-b border-[var(--border-gold)] rounded-bl-[100px] opacity-[0.06] pointer-events-none" />
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Instagram, MessageCircle, User } from 'lucide-react'
 import { kontakContent } from '../data/content'
 import { useContent } from '../context/ContentContext'
 import PageHeader from '../components/ui/PageHeader'
@@ -34,15 +34,21 @@ function validateField(name, value) {
 
 export default function KontakKamiPage() {
   const { texts } = useContent()
-  const info = (texts && texts.kontak && texts.kontak.info) ? texts.kontak.info : kontakContent.info
-  const cta = (texts && texts.kontak && texts.kontak.cta) ? texts.kontak.cta : kontakContent.cta
+  const info = texts?.kontak?.info || kontakContent.info
+  const cta = texts?.kontak?.cta || kontakContent.cta
+  const schoolInfo = texts?.schoolInfo || {}
 
-  const contactItems = [
-    { icon: MapPin, label: 'Alamat', value: info.address },
-    { icon: Phone, label: 'Telepon', value: info.phone },
-    { icon: Mail, label: 'Email', value: info.email },
-    { icon: Clock, label: 'Jam Operasional', value: info.hours },
+  const contacts = info.contacts || [
+    { name: 'Ka Ecep Supriatna', role: 'Humas & Pendaftaran', phone: '+62 895-3267-69365', whatsapp: '62895326769365' },
+    { name: 'Ka Fikri Fathul Islam', role: 'Informasi & Layanan', phone: '+62 089-3887-405', whatsapp: '620893887405' },
   ]
+
+  const socialMedia = schoolInfo.socialMedia || {
+    instagram: 'https://instagram.com/sekolahalamalhakim',
+    instagramHandle: '@sekolahalamalhakim',
+    instagramSmp: 'https://instagram.com/sekolahalamalhakim_smp',
+    instagramSmpHandle: '@sekolahalamalhakim_smp',
+  }
 
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
@@ -114,40 +120,115 @@ export default function KontakKamiPage() {
         <div className="container-site">
           <SectionReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Info cards */}
-              <div className="flex flex-col gap-5">
-                {contactItems.map((item, index) => {
-                  const Icon = item.icon
-                  return (
-                    <div key={index} className="content-card flex items-start gap-4 group">
-                      <div className="shrink-0 w-11 h-11 flex items-center justify-center rounded-full bg-[var(--gold-ghost)] border border-[var(--border-gold)] text-[var(--gold-primary)] group-hover:bg-[var(--gold-primary)] group-hover:text-[var(--text-on-gold)] transition-colors duration-300">
-                        <Icon size={18} strokeWidth={1.5} />
+              {/* Contact Information & Staff Cards */}
+              <div className="flex flex-col gap-6">
+                {/* Contact Persons */}
+                <div className="content-card p-6 bg-[var(--bg-secondary)] border border-[var(--border-gold)]">
+                  <h3 className="text-label text-[var(--gold-primary)] mb-4 flex items-center gap-2">
+                    <User size={16} /> Kontak Admin & Staff Pendaftaran
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {contacts.map((c, idx) => (
+                      <div key={idx} className="p-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-[4px] flex flex-col gap-2">
+                        <span className="font-[Jost] font-medium text-sm text-[var(--text-primary)]">
+                          {c.name}
+                        </span>
+                        <span className="text-[11px] text-[var(--gold-dim)] uppercase tracking-wider">
+                          {c.role || 'Informasi & Layanan'}
+                        </span>
+                        <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-subtle)]">
+                          <a
+                            href={`https://wa.me/${c.whatsapp || c.phone.replace(/[^0-9]/g, '')}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-[var(--gold-primary)] hover:underline flex items-center gap-1 font-[Jost]"
+                          >
+                            <MessageCircle size={14} /> {c.phone}
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Social Media Instagram Cards */}
+                <div className="content-card p-6 bg-[var(--bg-secondary)] border border-[var(--border-subtle)]">
+                  <h3 className="text-label text-[var(--gold-primary)] mb-4 flex items-center gap-2">
+                    <Instagram size={16} /> Akun Instagram Official
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a
+                      href={socialMedia.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded hover:border-[var(--gold-primary)] transition-colors flex items-center gap-3 group"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-[var(--gold-ghost)] flex items-center justify-center text-[var(--gold-primary)] group-hover:bg-[var(--gold-primary)] group-hover:text-black transition-colors">
+                        <Instagram size={18} />
                       </div>
                       <div>
-                        <p className="text-label text-[var(--gold-primary)] mb-1.5">
-                          {item.label}
-                        </p>
-                        <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                          {item.value}
-                        </p>
+                        <span className="text-xs text-[var(--text-muted)] block">IG Utama & SD</span>
+                        <span className="text-xs font-[Jost] text-[var(--text-primary)] font-medium group-hover:text-[var(--gold-primary)]">
+                          {socialMedia.instagramHandle || '@sekolahalamalhakim'}
+                        </span>
                       </div>
+                    </a>
+
+                    <a
+                      href={socialMedia.instagramSmp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded hover:border-[var(--gold-primary)] transition-colors flex items-center gap-3 group"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-[var(--gold-ghost)] flex items-center justify-center text-[var(--gold-primary)] group-hover:bg-[var(--gold-primary)] group-hover:text-black transition-colors">
+                        <Instagram size={18} />
+                      </div>
+                      <div>
+                        <span className="text-xs text-[var(--text-muted)] block">IG SMP Al-Hakim</span>
+                        <span className="text-xs font-[Jost] text-[var(--text-primary)] font-medium group-hover:text-[var(--gold-primary)]">
+                          {socialMedia.instagramSmpHandle || '@sekolahalamalhakim_smp'}
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Location & Hours */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="content-card flex items-start gap-4">
+                    <div className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-[var(--gold-ghost)] border border-[var(--border-gold)] text-[var(--gold-primary)]">
+                      <MapPin size={18} />
                     </div>
-                  )
-                })}
+                    <div>
+                      <p className="text-label text-[var(--gold-primary)] mb-1">Alamat</p>
+                      <p className="text-[var(--text-secondary)] text-xs leading-relaxed">{info.address}</p>
+                    </div>
+                  </div>
+
+                  <div className="content-card flex items-start gap-4">
+                    <div className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-[var(--gold-ghost)] border border-[var(--border-gold)] text-[var(--gold-primary)]">
+                      <Clock size={18} />
+                    </div>
+                    <div>
+                      <p className="text-label text-[var(--gold-primary)] mb-1">Jam Operasional</p>
+                      <p className="text-[var(--text-secondary)] text-xs leading-relaxed">{info.hours}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Google Maps embed */}
-              <div className="min-h-[380px] rounded-[4px] overflow-hidden border border-[var(--border-subtle)]">
+              <div className="min-h-[420px] rounded-[4px] overflow-hidden border border-[var(--border-subtle)]">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5!2d106.8!3d-6.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzYnMDAuMCJTIDEwNsKwNDgnMDAuMCJF!5e0!3m2!1sid!2sid!4v1234567890"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, minHeight: '380px' }}
+                  style={{ border: 0, minHeight: '420px' }}
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Lokasi Sekolah Alam Al-Hakim"
-                  className="w-full h-full min-h-[380px]"
+                  className="w-full h-full min-h-[420px]"
                 />
               </div>
             </div>
@@ -318,9 +399,22 @@ export default function KontakKamiPage() {
                 {cta.text}
               </h2>
               <GoldDivider className="mb-8" />
-              <a href={cta.link} target="_blank" rel="noopener noreferrer">
-                <Button variant="primary">Chat via WhatsApp</Button>
-              </a>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <a
+                  href={`https://wa.me/${contacts[0]?.whatsapp || '62895326769365'}?text=Assalamu'alaikum,%20saya%20ingin%20bertanya%20tentang%20Sekolah%20Alam%20Al-Hakim`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="primary">Chat Ka Ecep Supriatna</Button>
+                </a>
+                <a
+                  href={`https://wa.me/${contacts[1]?.whatsapp || '620893887405'}?text=Assalamu'alaikum,%20saya%20ingin%20bertanya%20tentang%20Sekolah%20Alam%20Al-Hakim`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline">Chat Ka Fikri Fathul Islam</Button>
+                </a>
+              </div>
             </div>
           </SectionReveal>
         </div>

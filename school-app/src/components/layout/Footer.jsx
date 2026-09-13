@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Instagram, Facebook, Youtube, Phone, Mail, MapPin, Send, ArrowUp, Heart } from 'lucide-react'
-import { schoolInfo } from '../../data/content'
+import { Instagram, Facebook, Youtube, Phone, Mail, MapPin, Heart, MessageCircle } from 'lucide-react'
+import { useContent } from '../../context/ContentContext'
 
 const NAV_GROUPS = [
   {
@@ -22,56 +21,83 @@ const NAV_GROUPS = [
   },
 ]
 
-const SOCIALS = [
-  { icon: Instagram, href: schoolInfo.socialMedia.instagram, label: 'Instagram' },
-  { icon: Facebook, href: schoolInfo.socialMedia.facebook, label: 'Facebook' },
-  { icon: Youtube, href: schoolInfo.socialMedia.youtube, label: 'Youtube' },
-]
-
 export default function Footer() {
+  const { texts } = useContent()
+  const info = texts?.kontak?.info || {}
+  const schoolInfo = texts?.schoolInfo || {}
+
+  const contacts = info.contacts || [
+    { name: 'Ka Ecep Supriatna', phone: '+62 895-3267-69365', whatsapp: '62895326769365' },
+    { name: 'Ka Fikri Fathul Islam', phone: '+62 089-3887-405', whatsapp: '620893887405' },
+  ]
+
+  const socialMedia = schoolInfo.socialMedia || {
+    instagram: 'https://instagram.com/sekolahalamalhakim',
+    instagramHandle: '@sekolahalamalhakim',
+    instagramSmp: 'https://instagram.com/sekolahalamalhakim_smp',
+    instagramSmpHandle: '@sekolahalamalhakim_smp',
+    facebook: 'https://facebook.com/SekolahAlamAlHakim',
+    youtube: 'https://youtube.com/@SekolahAlamAlHakim',
+  }
+
+  const socials = [
+    { icon: Instagram, href: socialMedia.instagram, label: socialMedia.instagramHandle || 'IG Utama' },
+    { icon: Instagram, href: socialMedia.instagramSmp, label: socialMedia.instagramSmpHandle || 'IG SMP' },
+    { icon: Facebook, href: socialMedia.facebook, label: 'Facebook' },
+    { icon: Youtube, href: socialMedia.youtube, label: 'Youtube' },
+  ]
+
   return (
     <footer className="border-t border-[var(--border-gold)] bg-[#141414] transition-colors duration-500">
-
       {/* ── Main columns ── */}
       <div className="container-site py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16">
           {/* Column 1 — Brand */}
           <div className="flex flex-col gap-4">
-            <Link
-              to="/"
-              className="font-[Cormorant_Garamond] text-2xl lg:text-3xl font-light tracking-[0.04em] text-[var(--text-primary)] hover:text-[var(--gold-primary)] transition-colors duration-300"
-            >
-              Sekolah Alam AL-Hakim
+            <Link to="/" className="flex items-center gap-3 group">
+              <img
+                src="/logo-gold.png"
+                alt="Logo Sekolah Alam Al-Hakim"
+                className="h-10 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              />
             </Link>
-            <p className="text-label text-[var(--gold-dim)]">
-              {schoolInfo.tagline}
-            </p>
+            <p className="text-label text-[var(--gold-dim)]">{schoolInfo.tagline}</p>
             {/* Gold divider */}
             <div className="w-12 h-px bg-[var(--gold-primary)] opacity-30 my-2" />
-            {/* Social icons — mobile only under brand */}
-            <div className="flex items-center gap-3 pt-1 md:hidden">
-              {SOCIALS.map(({ icon: Icon, href, label }) => (
+
+            {/* Social handles list */}
+            <div className="flex flex-col gap-2">
+              <span className="text-xs text-[var(--gold-primary)] font-[Jost] tracking-wider uppercase">
+                Instagram Official
+              </span>
+              <div className="flex flex-wrap gap-2">
                 <a
-                  key={label}
-                  href={href}
+                  href={socialMedia.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-9 h-9 rounded-full border border-[var(--border-gold)] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--gold-primary)] hover:border-[var(--gold-primary)] transition-all duration-300"
+                  className="text-xs text-[var(--text-secondary)] hover:text-[var(--gold-primary)] bg-black/40 px-3 py-1.5 rounded border border-[var(--border-subtle)] flex items-center gap-1.5 transition-colors"
                 >
-                  <Icon size={16} />
+                  <Instagram size={13} className="text-[var(--gold-primary)]" />
+                  {socialMedia.instagramHandle || '@sekolahalamalhakim'}
                 </a>
-              ))}
+                <a
+                  href={socialMedia.instagramSmp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-[var(--text-secondary)] hover:text-[var(--gold-primary)] bg-black/40 px-3 py-1.5 rounded border border-[var(--border-subtle)] flex items-center gap-1.5 transition-colors"
+                >
+                  <Instagram size={13} className="text-[var(--gold-primary)]" />
+                  {socialMedia.instagramSmpHandle || '@sekolahalamalhakim_smp'}
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Column 2 — Navigation */}
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 gap-6">
             {NAV_GROUPS.map((group) => (
               <div key={group.label} className="flex flex-col gap-3">
-                <span className="text-label text-[var(--gold-dim)]">
-                  {group.label}
-                </span>
+                <span className="text-label text-[var(--gold-dim)]">{group.label}</span>
                 <ul className="flex flex-col gap-2.5">
                   {group.links.map((link) => (
                     <li key={link.to}>
@@ -90,28 +116,38 @@ export default function Footer() {
 
           {/* Column 3 — Contact */}
           <div className="flex flex-col gap-5">
-            {/* Contact lines */}
+            <span className="text-label text-[var(--gold-dim)]">Kontak & Admin</span>
             <ul className="flex flex-col gap-3">
-              <li className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[var(--gold-ghost)] flex items-center justify-center shrink-0 mt-0.5">
-                  <Phone size={14} className="text-[var(--gold-primary)]" />
-                </div>
-                <a
-                  href={`tel:${schoolInfo.phone}`}
-                  className="text-sm text-[var(--text-secondary)] hover:text-[var(--gold-primary)] transition-colors duration-300 pt-1"
-                >
-                  {schoolInfo.phone}
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
+              {contacts.map((c, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[var(--gold-ghost)] flex items-center justify-center shrink-0 mt-0.5 border border-[var(--border-gold)]">
+                    <Phone size={13} className="text-[var(--gold-primary)]" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-[Jost] text-[var(--text-primary)] font-medium">
+                      {c.name} {c.role ? `(${c.role})` : ''}
+                    </span>
+                    <a
+                      href={`https://wa.me/${c.whatsapp || c.phone.replace(/[^0-9]/g, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-[var(--gold-primary)] hover:underline flex items-center gap-1"
+                    >
+                      <MessageCircle size={11} /> {c.phone}
+                    </a>
+                  </div>
+                </li>
+              ))}
+
+              <li className="flex items-start gap-3 pt-1">
                 <div className="w-8 h-8 rounded-full bg-[var(--gold-ghost)] flex items-center justify-center shrink-0 mt-0.5">
                   <Mail size={14} className="text-[var(--gold-primary)]" />
                 </div>
                 <a
-                  href={`mailto:${schoolInfo.email}`}
+                  href={`mailto:${info.email || 'info@sekolahalam-alhakim.sch.id'}`}
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--gold-primary)] transition-colors duration-300 pt-1"
                 >
-                  {schoolInfo.email}
+                  {info.email || 'info@sekolahalam-alhakim.sch.id'}
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -119,26 +155,10 @@ export default function Footer() {
                   <MapPin size={14} className="text-[var(--gold-primary)]" />
                 </div>
                 <span className="text-sm text-[var(--text-secondary)] pt-1">
-                  {schoolInfo.address}
+                  {info.address}
                 </span>
               </li>
             </ul>
-
-            {/* Social icons — desktop only */}
-            <div className="hidden md:flex items-center gap-3 pt-1">
-              {SOCIALS.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-9 h-9 rounded-full border border-[var(--border-gold)] flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--gold-primary)] hover:border-[var(--gold-primary)] hover:bg-[var(--gold-ghost)] transition-all duration-300"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </div>
@@ -147,7 +167,7 @@ export default function Footer() {
       <div className="container-site pb-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-[var(--border-gold)]">
           <p className="text-xs text-[var(--text-muted)]">
-            &copy; {new Date().getFullYear()} {schoolInfo.name}. All rights reserved.
+            &copy; {new Date().getFullYear()} {schoolInfo.name || 'Sekolah Alam Al-Hakim'}. All rights reserved.
           </p>
           <p className="text-xs text-[var(--text-muted)] flex items-center gap-1">
             Dibuat dengan <Heart size={10} className="text-[var(--gold-primary)] inline" /> untuk pendidikan Indonesia |{' '}

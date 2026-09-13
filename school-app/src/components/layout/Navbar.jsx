@@ -218,12 +218,15 @@ function Navbar() {
           }`}
         />
         <div className="container-site flex items-center justify-between h-[72px]">
-          {/* Logo */}
           <Link
             to="/"
-            className="font-[Cormorant_Garamond] text-[1.35rem] tracking-[0.04em] text-[var(--text-primary)] hover:text-[var(--gold-primary)] transition-colors duration-300 whitespace-nowrap"
+            className="flex items-center gap-2.5 hover:opacity-90 transition-opacity duration-300"
           >
-            Sekolah Alam AL-Hakim
+            <img
+              src="/logo-gold.png"
+              alt="Logo Sekolah Alam Al-Hakim"
+              className="h-9 w-auto object-contain shrink-0"
+            />
           </Link>
 
           {/* Desktop nav */}

@@ -50,9 +50,7 @@ export default function AdminLoginPage() {
         className="w-full max-w-md bg-[var(--bg-secondary)] border border-[var(--border-gold)] p-8 md:p-10 rounded-[4px] shadow-2xl relative z-10"
       >
         <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-full bg-[var(--gold-ghost)] border border-[var(--border-gold)] flex items-center justify-center text-[var(--gold-primary)] mx-auto mb-4">
-            <Lock size={24} strokeWidth={1.5} />
-          </div>
+          <img src="/logo-gold.png" alt="Logo Sekolah Alam Al-Hakim" className="h-14 w-auto mx-auto mb-4 object-contain" />
           <p className="text-label text-[var(--gold-primary)] mb-2">Portal Monitoring</p>
           <h1 className="heading-md text-[var(--text-primary)] mb-2">Login Admin</h1>
           <p className="text-xs text-[var(--text-muted)] font-[Jost]">

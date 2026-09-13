@@ -6,12 +6,32 @@
 export const schoolInfo = {
   name: "Sekolah Alam Al-Hakim",
   tagline: "Giri Tempa Bagi Ekspresi Fitrah Insani",
-  phone: "+62 812-3456-7890",
+  logo: "/logo-gold.png",
+  logoLight: "/logo-light.png",
+  logoDark: "/logo-dark.png",
+  phone: "+62 895-3267-69365",
+  contacts: [
+    {
+      name: "Ka Ecep Supriatna",
+      role: "Humas & Pendaftaran",
+      phone: "+62 895-3267-69365",
+      whatsapp: "62895326769365",
+    },
+    {
+      name: "Ka Fikri Fathul Islam",
+      role: "Informasi & Layanan",
+      phone: "+62 089-3887-405",
+      whatsapp: "620893887405",
+    },
+  ],
   email: "info@sekolahalam-alhakim.sch.id",
   address: "Jl. Bumi Persada No. 17, Desa Ciputri, Kec. Cianjur, Kab. Cianjur, Jawa Barat 43262",
-  whatsapp: "6281234567890",
+  whatsapp: "62895326769365",
   socialMedia: {
-    instagram: "https://instagram.com/sekolahalam_alhakim",
+    instagram: "https://instagram.com/sekolahalamalhakim",
+    instagramHandle: "@sekolahalamalhakim",
+    instagramSmp: "https://instagram.com/sekolahalamalhakim_smp",
+    instagramSmpHandle: "@sekolahalamalhakim_smp",
     facebook: "https://facebook.com/SekolahAlamAlHakim",
     youtube: "https://youtube.com/@SekolahAlamAlHakim",
   },
@@ -187,13 +207,27 @@ export const kontakContent = {
   subtitle: "Informasi Lokasi & Kontak Sekolah",
   info: {
     address: "Jl. Bumi Persada No. 17, Desa Ciputri, Kec. Cianjur, Kab. Cianjur, Jawa Barat 43262",
-    phone: "+62 812-3456-7890",
+    phone: "+62 895-3267-69365",
+    contacts: [
+      {
+        name: "Ka Ecep Supriatna",
+        role: "Humas & Pendaftaran",
+        phone: "+62 895-3267-69365",
+        whatsapp: "62895326769365",
+      },
+      {
+        name: "Ka Fikri Fathul Islam",
+        role: "Informasi & Layanan",
+        phone: "+62 089-3887-405",
+        whatsapp: "620893887405",
+      },
+    ],
     email: "info@sekolahalam-alhakim.sch.id",
     hours: "Senin – Jumat: 07.30 – 15.00 WIB | Sabtu: 08.00 – 12.00 WIB",
   },
   cta: {
     text: "Chat via WhatsApp",
-    link: "https://wa.me/6281234567890?text=Assalamu'alaikum,%20saya%20ingin%20bertanya%20tentang%20Sekolah%20Alam%20Al-Hakim",
+    link: "https://wa.me/62895326769365?text=Assalamu'alaikum,%20saya%20ingin%20bertanya%20tentang%20Sekolah%20Alam%20Al-Hakim",
   },
 };
 

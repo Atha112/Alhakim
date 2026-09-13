@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone } from 'lucide-react'
-import { schoolInfo } from '../../data/content'
-
-const WA_LINK =
-  `https://wa.me/${schoolInfo.whatsapp}?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20Sekolah%20Alam%20AL-Hakim`
+import { useContent } from '../../context/ContentContext'
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false)
+  const { texts } = useContent()
+  const waNumber = texts?.schoolInfo?.whatsapp || '62895326769365'
+  const waLink = `https://wa.me/${waNumber}?text=Assalamu'alaikum,%20saya%20ingin%20bertanya%20tentang%20Sekolah%20Alam%20Al-Hakim`
 
   return (
     <div className="fixed bottom-6 right-5 z-[80] flex items-center gap-3 pb-[env(safe-area-inset-bottom)] pr-[env(safe-area-inset-right)]">
@@ -28,7 +28,7 @@ export default function WhatsAppButton() {
       </AnimatePresence>
 
       <motion.a
-        href={WA_LINK}
+        href={waLink}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center w-14 h-14 rounded-full bg-[var(--gold-primary)] animate-pulse-wa shadow-lg"

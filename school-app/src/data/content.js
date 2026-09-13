@@ -12,20 +12,18 @@ export const schoolInfo = {
   phone: "+62 895-3267-69365",
   contacts: [
     {
-      name: "Ka Ecep Supriatna",
-      role: "Humas & Pendaftaran",
+      name: "Ecep Supriatna",
       phone: "+62 895-3267-69365",
       whatsapp: "62895326769365",
     },
     {
-      name: "Ka Fikri Fathul Islam",
-      role: "Informasi & Layanan",
+      name: "Fikri Fathul Islam",
       phone: "+62 089-3887-405",
       whatsapp: "620893887405",
     },
   ],
-  email: "info@sekolahalam-alhakim.sch.id",
-  address: "Jl. Bumi Persada No. 17, Desa Ciputri, Kec. Cianjur, Kab. Cianjur, Jawa Barat 43262",
+  email: "sekolahalamalhakimlembang@gmail.com",
+  address: "Kampung Lebak Cihideung RT 02/17, Desa Jayagiri, Lembang, Jawa Barat",
   whatsapp: "62895326769365",
   socialMedia: {
     instagram: "https://instagram.com/sekolahalamalhakim",
@@ -206,24 +204,22 @@ export const kontakContent = {
   title: "Hubungi Kami",
   subtitle: "Informasi Lokasi & Kontak Sekolah",
   info: {
-    address: "Jl. Bumi Persada No. 17, Desa Ciputri, Kec. Cianjur, Kab. Cianjur, Jawa Barat 43262",
+    address: "Kampung Lebak Cihideung RT 02/17, Desa Jayagiri, Lembang, Jawa Barat",
     phone: "+62 895-3267-69365",
     contacts: [
       {
-        name: "Ka Ecep Supriatna",
-        role: "Humas & Pendaftaran",
+        name: "Ecep Supriatna",
         phone: "+62 895-3267-69365",
         whatsapp: "62895326769365",
       },
       {
-        name: "Ka Fikri Fathul Islam",
-        role: "Informasi & Layanan",
+        name: "Fikri Fathul Islam",
         phone: "+62 089-3887-405",
         whatsapp: "620893887405",
       },
     ],
-    email: "info@sekolahalam-alhakim.sch.id",
-    hours: "Senin – Jumat: 07.30 – 15.00 WIB | Sabtu: 08.00 – 12.00 WIB",
+    email: "sekolahalamalhakimlembang@gmail.com",
+    hours: "SD: 07.15 – 13.30 WIB | SMP: 07.15 – 14.30 WIB",
   },
   cta: {
     text: "Chat via WhatsApp",
@@ -506,7 +502,7 @@ export const pendaftaranContent = {
       number: 1,
       title: "Isi Formulir Pendaftaran",
       description:
-        "Lengkapi formulir pendaftaran online dengan data calon siswa dan orang tua. Pastikan semua informasi terisi dengan benar.",
+        "Hubungi Fikri Fathul Islam via WhatsApp untuk pengisian formulir & konsultasi pendaftaran santri.",
     },
     {
       number: 2,
@@ -529,7 +525,7 @@ export const pendaftaranContent = {
   ],
   cta: {
     text: "Isi Formulir Pendaftaran",
-    link: "https://forms.google.com/sekolahalam-alhakim",
+    link: "https://wa.me/620893887405?text=Assalamu'alaikum,%20saya%20ingin%20mengisi%20formulir%20pendaftaran%20Sekolah%20Alam%20Al-Hakim",
   },
 };
 

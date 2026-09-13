@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { Instagram, Facebook, Youtube, Phone, Mail, MapPin, Heart, MessageCircle } from 'lucide-react'
+import { Instagram, Facebook, Youtube, Mail, MapPin, Heart } from 'lucide-react'
 import { useContent } from '../../context/ContentContext'
+import WhatsAppIcon from '../ui/WhatsAppIcon'
 
 const NAV_GROUPS = [
   {
@@ -27,8 +28,8 @@ export default function Footer() {
   const schoolInfo = texts?.schoolInfo || {}
 
   const contacts = info.contacts || [
-    { name: 'Ka Ecep Supriatna', phone: '+62 895-3267-69365', whatsapp: '62895326769365' },
-    { name: 'Ka Fikri Fathul Islam', phone: '+62 089-3887-405', whatsapp: '620893887405' },
+    { name: 'Ecep Supriatna', phone: '+62 895-3267-69365', whatsapp: '62895326769365' },
+    { name: 'Fikri Fathul Islam', phone: '+62 089-3887-405', whatsapp: '620893887405' },
   ]
 
   const socialMedia = schoolInfo.socialMedia || {
@@ -118,36 +119,39 @@ export default function Footer() {
           <div className="flex flex-col gap-5">
             <span className="text-label text-[var(--gold-dim)]">Kontak & Admin</span>
             <ul className="flex flex-col gap-3">
-              {contacts.map((c, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[var(--gold-ghost)] flex items-center justify-center shrink-0 mt-0.5 border border-[var(--border-gold)]">
-                    <Phone size={13} className="text-[var(--gold-primary)]" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs font-[Jost] text-[var(--text-primary)] font-medium">
-                      {c.name} {c.role ? `(${c.role})` : ''}
-                    </span>
-                    <a
-                      href={`https://wa.me/${c.whatsapp || c.phone.replace(/[^0-9]/g, '')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-[var(--gold-primary)] hover:underline flex items-center gap-1"
-                    >
-                      <MessageCircle size={11} /> {c.phone}
-                    </a>
-                  </div>
-                </li>
-              ))}
+              {contacts.map((c, i) => {
+                const cleanName = c.name.replace(/^Ka\s+/i, '')
+                return (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-[var(--gold-ghost)] flex items-center justify-center shrink-0 mt-0.5 border border-[var(--border-gold)] text-emerald-400">
+                      <WhatsAppIcon size={14} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-[Jost] text-[var(--text-primary)] font-medium">
+                        {cleanName}
+                      </span>
+                      <a
+                        href={`https://wa.me/${c.whatsapp || c.phone.replace(/[^0-9]/g, '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-[var(--gold-primary)] hover:underline flex items-center gap-1"
+                      >
+                        {c.phone}
+                      </a>
+                    </div>
+                  </li>
+                )
+              })}
 
               <li className="flex items-start gap-3 pt-1">
                 <div className="w-8 h-8 rounded-full bg-[var(--gold-ghost)] flex items-center justify-center shrink-0 mt-0.5">
                   <Mail size={14} className="text-[var(--gold-primary)]" />
                 </div>
                 <a
-                  href={`mailto:${info.email || 'info@sekolahalam-alhakim.sch.id'}`}
+                  href={`mailto:${info.email || 'sekolahalamalhakimlembang@gmail.com'}`}
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--gold-primary)] transition-colors duration-300 pt-1"
                 >
-                  {info.email || 'info@sekolahalam-alhakim.sch.id'}
+                  {info.email || 'sekolahalamalhakimlembang@gmail.com'}
                 </a>
               </li>
               <li className="flex items-start gap-3">

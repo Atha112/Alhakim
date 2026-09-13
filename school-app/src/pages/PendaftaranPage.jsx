@@ -5,54 +5,10 @@ import PageHeader from '../components/ui/PageHeader'
 import SectionReveal from '../components/ui/SectionReveal'
 import GoldDivider from '../components/ui/GoldDivider'
 import Button from '../components/ui/Button'
-import Accordion from '../components/ui/Accordion'
 
 const { title, subtitle, steps, cta } = pendaftaranContent
 
 const stepIcons = [FileText, ClipboardList, Bell, CheckCircle]
-
-const faqItems = [
-  {
-    question: 'Berapa biaya pendaftaran?',
-    answer: 'Biaya pendaftaran bervariasi sesuai jenjang pendidikan. Untuk informasi detail biaya, silakan hubungi tim admisi kami melalui WhatsApp atau telepon.',
-  },
-  {
-    question: 'Apakah tersedia program beasiswa?',
-    answer: 'Ya, Sekolah Alam Al-Hakim menyediakan program beasiswa parsial untuk siswa berprestasi dari keluarga kurang mampu. Informasi lebih lanjut dapat ditanyakan saat sesi wawancara.',
-  },
-  {
-    question: 'Kapan tahun ajaran baru dimulai?',
-    answer: 'Tahun ajaran baru dimulai setiap bulan Juli. Namun, pendaftaran dibuka sejak bulan Januari hingga Mei setiap tahunnya.',
-  },
-  {
-    question: 'Apakah siswa harus sudah bisa membaca untuk masuk SD?',
-    answer: 'Tidak harus. Kami melakukan observasi dan penilaian perkembangan anak secara holistik, bukan hanya kemampuan akademik. Setiap anak diterima berdasarkan kesiapan perkembangannya.',
-  },
-  {
-    question: 'Bagaimana sistem pembelajaran di sekolah ini berbeda dari sekolah reguler?',
-    answer: 'Kami menggunakan pendekatan pembelajaran berbasis alam (nature-based learning) di mana alam menjadi laboratorium utama. Siswa belajar melalui eksplorasi langsung, proyek nyata, dan pengalaman hands-on yang terintegrasi dengan nilai-nilai Islam.',
-  },
-  {
-    question: 'Apakah sekolah menyediakan transportasi/jemput putra-putri?',
-    answer: 'Saat ini kami belum menyediakan layanan transportasi. Namun, kami membantu koordinasi antar orang tua untuk carpooling dan menyediakan informasi transportasi umum yang menuju ke area sekolah.',
-  },
-  {
-    question: 'Bagaimana sistem penilaian di Sekolah Alam Al-Hakim?',
-    answer: 'Kami menggunakan penilaian berbasis kompetensi yang mencakup aspek kognitif, afektif, dan psikomotorik. Penilaian dilakukan melalui observasi harian, portofolio karya siswa, proyek, dan evaluasi berkala — bukan hanya ujian tertulis.',
-  },
-  {
-    question: 'Apakah siswa bisa masuk di tengah tahun ajaran?',
-    answer: 'Ya, kami menerima siswa pindahan di tengah tahun ajaran sesuai ketersediaan kuota. Calon siswa akan melalui proses observasi dan penyesuaian terlebih dahulu untuk memastikan transisi yang nyaman bagi anak.',
-  },
-  {
-    question: 'Apa saja kegiatan ekstrakurikuler yang tersedia?',
-    answer: 'Kami menawarkan berbagai kegiatan ekstrakurikuler yang terintegrasi dengan nilai alam dan Islam, termasuk pencak silat, seni batik, tahfidz intensif, pramuka alam, jurnalistik, dan kewirausahaan siswa.',
-  },
-  {
-    question: 'Bagaimana peran orang tua dalam pendidikan di Al-Hakim?',
-    answer: 'Orang tua merupakan mitra utama dalam pendidikan. Kami mengadakan pertemuan orang tua bulanan, workshop parenting, dan kegiatan kolaborasi orang tua-siswa. Komunikasi perkembangan anak dilaporkan secara rutin melalui aplikasi dan pertemuan tatap muka.',
-  },
-]
 
 const requiredDocuments = [
   'Akta Kelahiran (fotokopi)',
@@ -135,42 +91,25 @@ export default function PendaftaranPage() {
         <div className="container-site">
           <SectionReveal>
             <p className="text-label text-[var(--gold-primary)] text-center mb-3">
-              Dokumen
+              Dokumen & Persyaratan
             </p>
-            <h2 className="heading-md text-[var(--text-primary)] text-center mb-10">
-              Kelengkapan Berkas
+            <h2 className="heading-lg text-[var(--text-primary)] text-center mb-10">
+              Kelengkapan Berkas Pendaftaran
             </h2>
-            <div className="content-card max-w-[640px] mx-auto">
+            <div className="content-card max-w-[720px] mx-auto p-6 md:p-8 border border-[var(--border-gold)]">
               <ul className="space-y-4">
                 {requiredDocuments.map((doc, index) => (
                   <li
                     key={index}
-                    className="flex items-start gap-3 text-[var(--text-secondary)] text-sm leading-relaxed"
+                    className="flex items-center gap-4 text-[var(--text-primary)] text-base md:text-lg font-[Jost] font-light leading-relaxed p-3.5 rounded bg-[var(--bg-secondary)] border border-[var(--border-subtle)] hover:border-[var(--gold-primary)] transition-colors duration-300"
                   >
-                    <span className="shrink-0 w-6 h-6 rounded-full bg-[var(--gold-ghost)] border border-[var(--border-gold)] text-[var(--gold-primary)] flex items-center justify-center text-[11px] font-[Jost] font-medium mt-0.5">
+                    <span className="shrink-0 w-8 h-8 rounded-full bg-[var(--gold-ghost)] border border-[var(--border-gold)] text-[var(--gold-primary)] flex items-center justify-center text-sm font-[Jost] font-semibold">
                       {index + 1}
                     </span>
-                    {doc}
+                    <span className="pt-0.5">{doc}</span>
                   </li>
                 ))}
               </ul>
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="section-gap pt-0">
-        <div className="container-site">
-          <SectionReveal>
-            <p className="text-label text-[var(--gold-primary)] text-center mb-3">
-              FAQ
-            </p>
-            <h2 className="heading-md text-[var(--text-primary)] text-center mb-10">
-              Pertanyaan yang Sering Diajukan
-            </h2>
-            <div className="max-w-[640px] mx-auto">
-              <Accordion items={faqItems} />
             </div>
           </SectionReveal>
         </div>
@@ -180,14 +119,18 @@ export default function PendaftaranPage() {
       <section className="section-gap bg-[var(--bg-secondary)] border-t border-[var(--border-gold)]">
         <div className="container-site">
           <SectionReveal>
-            <h2 className="heading-lg text-[var(--text-primary)] text-center max-w-[600px] mx-auto mb-6">
+            <h2 className="heading-lg text-[var(--text-primary)] text-center max-w-[600px] mx-auto mb-4">
               Siap bergabung dengan keluarga besar Al-Hakim?
             </h2>
             <GoldDivider className="mb-8" />
             <div className="text-center">
-              <a href={cta.link} target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://wa.me/620893887405?text=Assalamu'alaikum%20Ka%20Fikri,%20saya%20ingin%20mengisi%20formulir%20pendaftaran%20Sekolah%20Alam%20Al-Hakim"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="primary">
-                  {cta.text}
+                  Isi Formulir Pendaftaran
                   <ArrowRight size={14} className="ml-1" />
                 </Button>
               </a>

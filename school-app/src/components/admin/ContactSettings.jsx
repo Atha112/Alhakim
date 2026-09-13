@@ -6,8 +6,8 @@ import Button from '../ui/Button'
 export default function ContactSettings({ texts, updateTexts, triggerToast }) {
   const info = texts.kontak?.info || {}
   const contacts = info.contacts || [
-    { name: 'Ka Ecep Supriatna', role: 'Humas & Pendaftaran', phone: '+62 895-3267-69365', whatsapp: '62895326769365' },
-    { name: 'Ka Fikri Fathul Islam', role: 'Informasi & Layanan', phone: '+62 089-3887-405', whatsapp: '620893887405' },
+    { name: 'Ecep Supriatna', phone: '+62 895-3267-69365', whatsapp: '62895326769365' },
+    { name: 'Fikri Fathul Islam', phone: '+62 089-3887-405', whatsapp: '620893887405' },
   ]
   const social = texts.schoolInfo?.socialMedia || {}
 
@@ -31,14 +31,12 @@ export default function ContactSettings({ texts, updateTexts, triggerToast }) {
 
     const updatedContacts = [
       {
-        name: 'Ka Ecep Supriatna',
-        role: 'Humas & Pendaftaran',
+        name: 'Ecep Supriatna',
         phone: ecepPhone,
         whatsapp: cleanEcepWa,
       },
       {
-        name: 'Ka Fikri Fathul Islam',
-        role: 'Informasi & Layanan',
+        name: 'Fikri Fathul Islam',
         phone: fikriPhone,
         whatsapp: cleanFikriWa,
       },
@@ -96,7 +94,7 @@ export default function ContactSettings({ texts, updateTexts, triggerToast }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="text-label text-[var(--text-secondary)] mb-1 block">
-                Ka Ecep Supriatna (WhatsApp / Telp)
+                Ecep Supriatna (WhatsApp / Telp)
               </label>
               <div className="relative">
                 <input
@@ -113,7 +111,7 @@ export default function ContactSettings({ texts, updateTexts, triggerToast }) {
 
             <div>
               <label className="text-label text-[var(--text-secondary)] mb-1 block">
-                Ka Fikri Fathul Islam (WhatsApp / Telp)
+                Fikri Fathul Islam (WhatsApp / Telp)
               </label>
               <div className="relative">
                 <input
